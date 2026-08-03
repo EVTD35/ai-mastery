@@ -54,7 +54,8 @@ export default function LoginPage() {
         });
         if (error) throw error;
 
-        setMessage("Compte créé avec succès ! Vérifiez vos emails (ou connectez-vous si la confirmation est désactivée).");
+        setMessage("Compte créé avec succès ! Connexion en cours...");
+window.location.href = "/";
       }
     } catch (err: any) {
       setMessage(err.message || "Une erreur est survenue.");
