@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 // Adapte ce chemin si ton fichier client supabase est ailleurs (ex: '@/lib/supabase')
-import { supabase } from '@/lib/supabase'; 
+import { supabase } from '@/lib/libsupabaseClient';
 
 export default function LoginPage() {
   const [isLogin, setIsLogin] = useState(true);
