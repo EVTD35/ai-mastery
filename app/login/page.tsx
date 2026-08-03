@@ -2,34 +2,69 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+// Adapte ce chemin si ton fichier client supabase est ailleurs (ex: '@/lib/supabase')
+import { supabase } from '@/lib/supabase'; 
 
 export default function LoginPage() {
-  const [isLogin, setIsLogin] = useState(true); // true = Connexion, false = Inscription
+  const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [forgotPassword, setForgotPassword] = useState(false);
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false); // Pour éviter les double-clics
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (forgotPassword) {
-      // Logique de réinitialisation de mot de passe
-      setMessage("Un email de réinitialisation vient de vous être envoyé.");
-      return;
-    }
+    setMessage('');
+    setLoading(true);
 
-    if (isLogin) {
-      // Logique de connexion Supabase
-      console.log("Connexion avec :", email, password);
-    } else {
-      // Logique d'inscription Supabase + déclenchement du mail de relance si non payant
-      console.log("Inscription avec :", name, email, password);
-      setMessage("Compte créé avec succès ! Vérifiez vos emails.");
+    try {
+      if (forgotPassword) {
+        // Réinitialisation du mot de passe
+        const { error } = await supabase.auth.resetPasswordForEmail(email, {
+          redirectTo: `${window.location.origin}/login`,
+        });
+        if (error) throw error;
+        setMessage("Un email de réinitialisation vient de vous être envoyé.");
+        setLoading(false);
+        return;
+      }
+
+      if (isLogin) {
+        // Logique de connexion Supabase
+        const { error } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
+        if (error) throw error;
+        
+        setMessage("Connexion réussie ! Redirection...");
+        window.location.href = "/"; // Redirige vers l'accueil ou le tableau de bord
+      } else {
+        // Logique d'inscription Supabase
+        const { error } = await supabase.auth.signUp({
+          email,
+          password,
+          options: {
+            data: {
+              full_name: name, // Enregistre le prénom/pseudo dans les métadonnées
+            },
+          },
+        });
+        if (error) throw error;
+
+        setMessage("Compte créé avec succès ! Vérifiez vos emails (ou connectez-vous si la confirmation est désactivée).");
+      }
+    } catch (err: any) {
+      setMessage(err.message || "Une erreur est survenue.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
+    // ... (garde tout le reste de ton return à l'identique, pense juste à désactiver le bouton si "loading" est true si tu veux)
     <div className="min-h-screen bg-[#0b0b0f] text-white flex items-center justify-center px-4">
       <div className="max-w-md w-full bg-white/[0.02] border border-white/10 p-8 rounded-3xl shadow-2xl backdrop-blur-md">
         
