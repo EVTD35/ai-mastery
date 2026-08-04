@@ -17,16 +17,22 @@ export default function Home() {
 
       if (currentUser && currentUser.email) {
         // On interroge par email pour correspondre parfaitement avec Supabase
-        const { data: profiles } = await supabase
-          .from('profiles')
-          .select('has_paid')
-          .eq('email', currentUser.email);
-        
-        if (profiles && profiles.length > 0) {
-          setHasPaid(profiles[0].has_paid ?? false);
-        } else {
-          setHasPaid(false);
-        }
+        const { data: profile, error } = await supabase
+  .from('profiles')
+  .select('has_paid')
+  .eq('id', currentUser.id)
+  .single();
+
+console.log("ID UTILISATEUR :", currentUser.id);
+console.log("PROFILE TROUVÉ :", profile);
+console.log("ERREUR SUPABASE :", error);
+
+if (profile) {
+  console.log("VALEUR HAS_PAID :", profile.has_paid);
+  setHasPaid(profile.has_paid ?? false);
+} else {
+  setHasPaid(false);
+}
       } else {
         setHasPaid(false);
       }
