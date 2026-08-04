@@ -96,7 +96,7 @@ export default function Home() {
     Accéder à la formation
   </a>
 )}
-          )}
+
         </div>
       </header>
 
