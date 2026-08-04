@@ -16,15 +16,23 @@ const [hasPaid, setHasPaid] = useState<boolean>(false);
       setUser(currentUser);
 
       if (currentUser) {
-        const { data: profile } = await supabase
+        console.log("Utilisateur connecté ID :", currentUser.id);
+
+        const { data: profile, error } = await supabase
           .from('profiles')
           .select('has_paid')
           .eq('id', currentUser.id)
           .single();
         
+        console.log("Résultat profil Supabase :", profile);
+        console.log("Erreur éventuelle Supabase :", error);
+
         setHasPaid(profile?.has_paid ?? false);
+      } else {
+        setHasPaid(false);
       }
     }
+
     checkUserAndPayment();
   }, []);
 
