@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
+import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2025-02-24.acacia' as any,
@@ -14,8 +16,13 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: 'Price ID non configuré' }, { status: 500 });
     }
 
+    // Récupérer l'utilisateur connecté via les cookies Supabase
+    const supabase = createRouteHandlerClient({ cookies });
+    const { data: { session: userSession } } = await supabase.auth.getSession();
+    const userEmail = userSession?.user?.email;
+
     // Création de la session de paiement Stripe
-    const session = await stripe.checkout.sessions.create({
+    const sessionConfig: Stripe.Checkout.SessionCreateParams = {
       payment_method_types: ['card'],
       line_items: [
         {
@@ -26,7 +33,14 @@ export async function GET(request: Request) {
       mode: 'payment',
       success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}`,
-    });
+    };
+
+    // Si l'utilisateur est connecté, on pré-remplit son email dans Stripe
+    if (userEmail) {
+      sessionConfig.customer_email = userEmail;
+    }
+
+    const session = await stripe.checkout.sessions.create(sessionConfig);
 
     // Redirection vers la page de paiement hébergée par Stripe
     return NextResponse.redirect(session.url!, 303);

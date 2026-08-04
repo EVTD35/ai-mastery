@@ -7,13 +7,25 @@ import { supabase } from '@/lib/libsupabaseClient'; // Adapte ce chemin si ton c
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 const [user, setUser] = useState<any>(null);
+const [hasPaid, setHasPaid] = useState<boolean>(false);
 
   useEffect(() => {
-    async function checkUser() {
+    async function checkUserAndPayment() {
       const { data: { session } } = await supabase.auth.getSession();
-      setUser(session?.user ?? null);
+      const currentUser = session?.user ?? null;
+      setUser(currentUser);
+
+      if (currentUser) {
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('has_paid')
+          .eq('id', currentUser.id)
+          .single();
+        
+        setHasPaid(profile?.has_paid ?? false);
+      }
     }
-    checkUser();
+    checkUserAndPayment();
   }, []);
 
   const handleLogout = async () => {
