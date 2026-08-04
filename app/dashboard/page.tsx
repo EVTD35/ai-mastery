@@ -63,8 +63,6 @@ export default function DashboardPage() {
       .eq('id', session.user.id)
       .single();
 
-    console.log("PROFILE DASHBOARD :", profile);
-    console.log("ERREUR DASHBOARD :", error);
 
     if (!profile?.has_paid) {
       window.location.href = '/';
