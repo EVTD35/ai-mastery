@@ -33,16 +33,40 @@ export default function Home() {
 
     checkUserAndPayment();
 
-    // Actualise automatiquement les données quand on revient sur l'onglet / la page
-    window.addEventListener('focus', checkUserAndPayment);
-
+    // 1. Écouter les changements d'authentification
     const { data: { subscription } } = supabase.auth.onAuthStateChange(() => {
       checkUserAndPayment();
     });
 
+    // 2. Écouter en temps réel les modifications sur la table profiles pour cet utilisateur
+    let channel: any = null;
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session?.user) {
+        channel = supabase
+          .channel('public:profiles')
+          .on(
+            'postgres_changes',
+            {
+              event: 'UPDATE',
+              schema: 'public',
+              table: 'profiles',
+              filter: `id=eq.${session.user.id}`,
+            },
+            (payload: any) => {
+              if (payload.new && typeof payload.new.has_paid === 'boolean') {
+                setHasPaid(payload.new.has_paid);
+              }
+            }
+          )
+          .subscribe();
+      }
+    });
+
     return () => {
       subscription.unsubscribe();
-      window.removeEventListener('focus', checkUserAndPayment);
+      if (channel) {
+        supabase.removeChannel(channel);
+      }
     };
   }, []);
 
@@ -83,7 +107,7 @@ export default function Home() {
             <Link href="/login" className="text-sm text-gray-300 hover:text-white transition duration-200">Connexion</Link>
           )}
 
-          {/* Bouton dynamique selon l'achat (Corrigé avec Link de Next.js) */}
+          {/* Bouton dynamique selon l'achat */}
           {user && hasPaid ? (
             <Link href="/modules" className="bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-emerald-600/20 hover:-translate-y-0.5 hover:shadow-emerald-600/40">
               Espace membre
@@ -214,7 +238,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION POUR QUI ? (4 BLOCS) */}
+      {/* SECTION POUR QUI ? */}
       <section id="pour-qui" className="max-w-7xl mx-auto px-6 py-24 border-t border-white/10 scroll-mt-20">
         <h2 className="text-xs font-semibold text-gray-500 tracking-widest uppercase mb-3 font-mono">À QUI S'ADRESSE LA FORMATION</h2>
         <h3 className="text-3xl md:text-4xl font-bold mb-12">Pensée pour celles et ceux qui passent à l'action</h3>
@@ -246,7 +270,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION TEMOIGNAGES / PREUVE SOCIALE */}
+      {/* SECTION TEMOIGNAGES */}
       <section id="temoignages" className="max-w-7xl mx-auto px-6 py-24 border-t border-white/10 scroll-mt-20">
         <h2 className="text-xs font-semibold text-gray-500 tracking-widest uppercase mb-3 font-mono">PREUVE SOCIALE</h2>
         <h3 className="text-3xl md:text-4xl font-bold mb-12">Des progressions concrètes, mesurées</h3>
@@ -296,7 +320,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION OFFRE DE LANCEMENT / TARIF */}
+      {/* SECTION TARIFS */}
       <section id="tarifs" className="max-w-5xl mx-auto px-6 py-20">
         <div className="text-center mb-6">
           <span className="text-xs font-semibold text-gray-500 tracking-widest uppercase font-mono">OFFRE DE LANCEMENT</span>
@@ -307,7 +331,6 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Un investissement, un accès à vie</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            {/* Colonne Prix & Bouton */}
             <div className="text-center md:text-left md:border-r md:border-white/10 md:pr-8">
               <span className="text-xs font-mono text-gray-400 uppercase tracking-wider block mb-2">MASTERCLASS COMPLÈTE</span>
               <div className="flex items-baseline justify-center md:justify-start space-x-3 mb-2">
@@ -322,7 +345,6 @@ export default function Home() {
               <span className="block text-center text-xs text-gray-500 mt-4">Paiement 100% sécurisé — propulsé par <strong>Stripe</strong></span>
             </div>
 
-            {/* Colonne Liste des avantages */}
             <div className="space-y-4 text-sm text-gray-300 md:pl-4">
               <span className="text-xs font-mono text-gray-400 uppercase tracking-wider block mb-4">TOUT EST INCLUS</span>
               <div className="flex items-center space-x-3"><span className="text-blue-500 font-bold">✓</span><span>Accès à vie à tous les modules vidéo (40h+)</span></div>
