@@ -16,10 +16,11 @@ export default function Home() {
       setUser(currentUser);
 
       if (currentUser) {
+        // On récupère le profil en se basant sur l'email de l'utilisateur connecté
         const { data: profiles } = await supabase
           .from('profiles')
           .select('has_paid')
-          .eq('id', currentUser.id);
+          .eq('email', currentUser.email); // <--- Utilisation de l'email ici
         
         if (profiles && profiles.length > 0) {
           setHasPaid(profiles[0].has_paid ?? false);
@@ -29,7 +30,6 @@ export default function Home() {
       } else {
         setHasPaid(false);
       }
-    }
 
     checkUserAndPayment();
 
