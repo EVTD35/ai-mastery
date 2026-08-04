@@ -78,9 +78,17 @@ const [hasPaid, setHasPaid] = useState<boolean>(false);
           ) : (
             <Link href="/login" className="text-sm text-gray-300 hover:text-white transition duration-200">Connexion</Link>
           )}
-          <Link href="/api/checkout" className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-blue-600/20 hover:-translate-y-0.5 hover:shadow-blue-600/40">
-            Accéder à la formation
-          </Link>
+
+          {/* Bouton dynamique selon l'achat */}
+          {user && hasPaid ? (
+            <Link href="/modules" className="bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-emerald-600/20 hover:-translate-y-0.5 hover:shadow-emerald-600/40">
+              Espace membre
+            </Link>
+          ) : (
+            <Link href="/api/checkout" className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-blue-600/20 hover:-translate-y-0.5 hover:shadow-blue-600/40">
+              Accéder à la formation
+            </Link>
+          )}
         </div>
       </header>
 
