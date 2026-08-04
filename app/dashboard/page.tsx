@@ -49,17 +49,34 @@ export default function DashboardPage() {
   const [currentLessonIndex, setCurrentLessonIndex] = useState(0);
 
   useEffect(() => {
-    async function checkUserSession() {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
-        window.location.href = '/login';
-      } else {
-        setUser(session.user);
-        setLoading(false);
-      }
+  async function checkUserSession() {
+    const { data: { session } } = await supabase.auth.getSession();
+
+    if (!session) {
+      window.location.href = '/login';
+      return;
     }
-    checkUserSession();
-  }, []);
+
+    const { data: profile, error } = await supabase
+      .from('profiles')
+      .select('has_paid')
+      .eq('id', session.user.id)
+      .single();
+
+    console.log("PROFILE DASHBOARD :", profile);
+    console.log("ERREUR DASHBOARD :", error);
+
+    if (!profile?.has_paid) {
+      window.location.href = '/';
+      return;
+    }
+
+    setUser(session.user);
+    setLoading(false);
+  }
+
+  checkUserSession();
+}, []);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
