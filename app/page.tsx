@@ -52,7 +52,8 @@ export default function Home() {
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
   };
-
+console.log("USER :", user);
+console.log("HAS PAID :", hasPaid);
   return (
     <div className="min-h-screen bg-[#0b0b0f] text-white font-sans selection:bg-blue-600 selection:text-white scroll-smooth" style={{ scrollBehavior: 'smooth' }}>
       
