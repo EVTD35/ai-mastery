@@ -16,24 +16,31 @@ const [hasPaid, setHasPaid] = useState<boolean>(false);
       setUser(currentUser);
 
       if (currentUser) {
-        console.log("Utilisateur connecté ID :", currentUser.id);
-
-        const { data: profile, error } = await supabase
+        // On récupère le profil sans forcer un .single() strict qui plante tout
+        const { data: profiles } = await supabase
           .from('profiles')
           .select('has_paid')
-          .eq('id', currentUser.id)
-          .single();
+          .eq('id', currentUser.id);
         
-        console.log("Résultat profil Supabase :", profile);
-        console.log("Erreur éventuelle Supabase :", error);
-
-        setHasPaid(profile?.has_paid ?? false);
+        if (profiles && profiles.length > 0) {
+          setHasPaid(profiles[0].has_paid ?? false);
+        } else {
+          setHasPaid(false);
+        }
       } else {
         setHasPaid(false);
       }
     }
 
     checkUserAndPayment();
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(() => {
+      checkUserAndPayment();
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
   }, []);
 
   const handleLogout = async () => {
