@@ -81,18 +81,13 @@ export default function Home() {
           )}
 
           {/* Bouton dynamique selon l'achat */}
-          {user && hasPaid ? (
-            <Link href="/modules" className="bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-emerald-600/20 hover:-translate-y-0.5 hover:shadow-emerald-600/40">
-              Espace membre
-            </Link>
-          ) : (
-            {hasPaid ? (
-  <a
-    href="/formation"
-    className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-blue-600/20 hover:-translate-y-0.5 hover:shadow-blue-600/40"
+{user && hasPaid ? (
+  <Link
+    href="/dashboard"
+    className="bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-emerald-600/20 hover:-translate-y-0.5 hover:shadow-emerald-600/40"
   >
     Espace membre
-  </a>
+  </Link>
 ) : (
   <a
     href="/api/checkout"
