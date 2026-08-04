@@ -31,14 +31,21 @@ export async function POST(request: Request) {
   // Quand le paiement Stripe est réussi
   if (event.type === 'checkout.session.completed') {
     const session = event.data.object as Stripe.Checkout.Session;
-    const customerEmail = session.customer_details?.email || session.customer_email;
 
-    if (customerEmail) {
-      // Met à jour l'utilisateur dans Supabase
-      const { error } = await supabaseAdmin
-        .from('profiles') // Remplace par le nom de ta table si c'est différent
-        .update({ has_paid: true })
-        .eq('email', customerEmail);
+const userId = session.client_reference_id;
+
+if (userId) {
+
+  console.log("USER ID STRIPE :", userId);
+
+  const { data, error } = await supabaseAdmin
+    .from('profiles')
+    .update({ has_paid: true })
+    .eq('id', userId)
+    .select();
+
+  console.log("PROFIL MIS A JOUR :", data);
+  console.log("ERREUR UPDATE :", error);
 
       if (error) {
         console.error('Erreur Supabase Webhook:', error);
