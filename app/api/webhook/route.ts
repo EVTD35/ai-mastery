@@ -24,6 +24,7 @@ export async function POST(request: Request) {
       signature,
       process.env.STRIPE_WEBHOOK_SECRET!
     );
+    console.log("TYPE EVENT :", event.type);
   } catch (err: any) {
     return NextResponse.json({ error: `Webhook Error: ${err.message}` }, { status: 400 });
   }
@@ -31,7 +32,8 @@ export async function POST(request: Request) {
   // Quand le paiement Stripe est réussi
   if (event.type === 'checkout.session.completed') {
     const session = event.data.object as Stripe.Checkout.Session;
-
+console.log("CLIENT REFERENCE ID :", session.client_reference_id);
+console.log("SESSION COMPLETE :", session);
 const userId = session.client_reference_id;
 
 if (userId) {
