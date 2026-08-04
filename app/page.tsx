@@ -2,12 +2,12 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { supabase } from '@/lib/libsupabaseClient'; // Adapte ce chemin si ton client supabase est ailleurs
+import { supabase } from '@/lib/libsupabaseClient';
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-const [user, setUser] = useState<any>(null);
-const [hasPaid, setHasPaid] = useState<boolean>(false);
+  const [user, setUser] = useState<any>(null);
+  const [hasPaid, setHasPaid] = useState<boolean>(false);
 
   useEffect(() => {
     async function checkUserAndPayment() {
@@ -16,7 +16,6 @@ const [hasPaid, setHasPaid] = useState<boolean>(false);
       setUser(currentUser);
 
       if (currentUser) {
-        // On récupère le profil sans forcer un .single() strict qui plante tout
         const { data: profiles } = await supabase
           .from('profiles')
           .select('has_paid')
@@ -34,20 +33,25 @@ const [hasPaid, setHasPaid] = useState<boolean>(false);
 
     checkUserAndPayment();
 
+    // Actualise automatiquement les données quand on revient sur l'onglet / la page
+    window.addEventListener('focus', checkUserAndPayment);
+
     const { data: { subscription } } = supabase.auth.onAuthStateChange(() => {
       checkUserAndPayment();
     });
 
     return () => {
       subscription.unsubscribe();
+      window.removeEventListener('focus', checkUserAndPayment);
     };
   }, []);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
     setUser(null);
-    window.location.reload(); // Rafraîchit la page pour remettre à jour l'affichage
+    window.location.reload();
   };
+
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
   };
@@ -79,15 +83,15 @@ const [hasPaid, setHasPaid] = useState<boolean>(false);
             <Link href="/login" className="text-sm text-gray-300 hover:text-white transition duration-200">Connexion</Link>
           )}
 
-          {/* Bouton dynamique selon l'achat */}
+          {/* Bouton dynamique selon l'achat (Corrigé avec Link de Next.js) */}
           {user && hasPaid ? (
-            <a href="/modules" className="bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-emerald-600/20 hover:-translate-y-0.5 hover:shadow-emerald-600/40">
+            <Link href="/modules" className="bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-emerald-600/20 hover:-translate-y-0.5 hover:shadow-emerald-600/40">
               Espace membre
-            </a>
+            </Link>
           ) : (
-            <a href="/api/checkout" className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-blue-600/20 hover:-translate-y-0.5 hover:shadow-emerald-600/40">
+            <Link href="/api/checkout" className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-blue-600/20 hover:-translate-y-0.5 hover:shadow-emerald-600/40">
               Accéder à la formation
-            </a>
+            </Link>
           )}
         </div>
       </header>
@@ -162,7 +166,6 @@ const [hasPaid, setHasPaid] = useState<boolean>(false);
             <span>• FREELANCE</span>
             <span>• SCALE</span>
           </span>
-          {/* Doublon pour assurer une boucle fluide sans accroc */}
           <span className="flex items-center space-x-12" aria-hidden="true">
             <span>• PROMPT ENGINEERING</span>
             <span>• AUTOMATISATION</span>
@@ -313,9 +316,9 @@ const [hasPaid, setHasPaid] = useState<boolean>(false);
               </div>
               <span className="text-emerald-400 block text-xs font-medium mb-8">Paiement unique • TVA incluse</span>
 
-              <a href="/api/checkout" className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-xl shadow-blue-600/30 flex items-center justify-center space-x-2 hover:-translate-y-0.5">
+              <Link href="/api/checkout" className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-xl shadow-blue-600/30 flex items-center justify-center space-x-2 hover:-translate-y-0.5">
                 <span>🔒 Créer un compte & payer</span>
-              </a>
+              </Link>
               <span className="block text-center text-xs text-gray-500 mt-4">Paiement 100% sécurisé — propulsé par <strong>Stripe</strong></span>
             </div>
 
@@ -332,7 +335,7 @@ const [hasPaid, setHasPaid] = useState<boolean>(false);
         </div>
       </section>
 
-      {/* SECTION FAQ (AVEC ANIMATION FLUIDE) */}
+      {/* SECTION FAQ */}
       <section id="faq" className="max-w-4xl mx-auto px-6 py-24 border-t border-white/10 scroll-mt-20">
         <h2 className="text-xs font-semibold text-gray-500 tracking-widest uppercase mb-3 text-center font-mono">FAQ</h2>
         <h3 className="text-3xl font-bold mb-12 text-center">Questions fréquentes</h3>
@@ -362,10 +365,9 @@ const [hasPaid, setHasPaid] = useState<boolean>(false);
         </div>
       </section>
 
-      {/* FOOTER COMPLET (IDENTIQUE AU SITE D'ORIGINE) */}
+      {/* FOOTER */}
       <footer className="border-t border-white/10 py-16 px-6 max-w-7xl mx-auto text-sm text-gray-500">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          {/* Colonne Marque */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <span className="w-2 h-2 rounded-full bg-blue-500"></span>
@@ -382,7 +384,6 @@ const [hasPaid, setHasPaid] = useState<boolean>(false);
             </div>
           </div>
 
-          {/* Colonne Formation */}
           <div>
             <h4 className="font-bold text-xs text-white uppercase tracking-wider mb-4 font-mono">FORMATION</h4>
             <ul className="space-y-3 text-xs">
@@ -393,7 +394,6 @@ const [hasPaid, setHasPaid] = useState<boolean>(false);
             </ul>
           </div>
 
-          {/* Colonne Légal */}
           <div>
             <h4 className="font-bold text-xs text-white uppercase tracking-wider mb-4 font-mono">LÉGAL</h4>
             <ul className="space-y-3 text-xs">
