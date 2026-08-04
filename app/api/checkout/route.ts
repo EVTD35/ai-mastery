@@ -18,6 +18,7 @@ export async function GET(request: Request) {
     // Récupérer la session active via le client Supabase
     const { data: { session: userSession } } = await supabase.auth.getSession();
     const userEmail = userSession?.user?.email;
+    const userId = userSession?.user?.id; // <--- 1. Récupérer l'ID utilisateur unique
 
     // Création de la session de paiement Stripe
     const sessionConfig: Stripe.Checkout.SessionCreateParams = {
@@ -35,6 +36,11 @@ export async function GET(request: Request) {
 
     if (userEmail) {
       sessionConfig.customer_email = userEmail;
+    }
+
+    // <--- 2. Transmettre l'ID utilisateur à Stripe pour que le webhook le retrouve
+    if (userId) {
+      sessionConfig.client_reference_id = userId;
     }
 
     const session = await stripe.checkout.sessions.create(sessionConfig);
