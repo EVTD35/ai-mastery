@@ -15,12 +15,12 @@ export default function Home() {
       const currentUser = session?.user ?? null;
       setUser(currentUser);
 
-      if (currentUser) {
-        // On récupère le profil en se basant sur l'email de l'utilisateur connecté
+      if (currentUser && currentUser.email) {
+        // On interroge par email pour correspondre parfaitement avec Supabase
         const { data: profiles } = await supabase
           .from('profiles')
           .select('has_paid')
-          .eq('email', currentUser.email); // <--- Utilisation de l'email ici
+          .eq('email', currentUser.email);
         
         if (profiles && profiles.length > 0) {
           setHasPaid(profiles[0].has_paid ?? false);
@@ -30,43 +30,16 @@ export default function Home() {
       } else {
         setHasPaid(false);
       }
+    }
 
     checkUserAndPayment();
 
-    // 1. Écouter les changements d'authentification
     const { data: { subscription } } = supabase.auth.onAuthStateChange(() => {
       checkUserAndPayment();
     });
 
-    // 2. Écouter en temps réel les modifications sur la table profiles pour cet utilisateur
-    let channel: any = null;
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session?.user) {
-        channel = supabase
-          .channel('public:profiles')
-          .on(
-            'postgres_changes',
-            {
-              event: 'UPDATE',
-              schema: 'public',
-              table: 'profiles',
-              filter: `id=eq.${session.user.id}`,
-            },
-            (payload: any) => {
-              if (payload.new && typeof payload.new.has_paid === 'boolean') {
-                setHasPaid(payload.new.has_paid);
-              }
-            }
-          )
-          .subscribe();
-      }
-    });
-
     return () => {
       subscription.unsubscribe();
-      if (channel) {
-        supabase.removeChannel(channel);
-      }
     };
   }, []);
 
@@ -113,9 +86,9 @@ export default function Home() {
               Espace membre
             </Link>
           ) : (
-            <a href="/api/checkout" className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-blue-600/20 hover:-translate-y-0.5 hover:shadow-emerald-600/40">
-  Accéder à la formation
-</a>
+            <a href="/api/checkout" className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-blue-600/20 hover:-translate-y-0.5 hover:shadow-blue-600/40">
+              Accéder à la formation
+            </a>
           )}
         </div>
       </header>
@@ -203,7 +176,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* SECTION 3 PILIERS (PROGRAMME) */}
+      {/* SECTION 3 PILIERS */}
       <section id="programme" className="max-w-7xl mx-auto px-6 py-24 scroll-mt-20">
         <h2 className="text-xs font-semibold text-gray-500 tracking-widest uppercase mb-3 font-mono">LE PROGRAMME</h2>
         <h3 className="text-3xl md:text-4xl font-bold mb-12">Ce que vous allez apprendre, en 3 piliers</h3>
@@ -339,9 +312,9 @@ export default function Home() {
               </div>
               <span className="text-emerald-400 block text-xs font-medium mb-8">Paiement unique • TVA incluse</span>
 
-              <Link href="/api/checkout" className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-xl shadow-blue-600/30 flex items-center justify-center space-x-2 hover:-translate-y-0.5">
+              <a href="/api/checkout" className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-xl shadow-blue-600/30 flex items-center justify-center space-x-2 hover:-translate-y-0.5">
                 <span>🔒 Créer un compte & payer</span>
-              </Link>
+              </a>
               <span className="block text-center text-xs text-gray-500 mt-4">Paiement 100% sécurisé — propulsé par <strong>Stripe</strong></span>
             </div>
 
