@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
-import { supabase } from '@/lib/libsupabaseClient';
+import { createClient } from '@/lib/supabaseServer';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2025-02-24.acacia' as any,
@@ -16,9 +16,12 @@ export async function GET(request: Request) {
     }
 
     // Récupérer la session active via le client Supabase
-    const { data: { session: userSession } } = await supabase.auth.getSession();
-    const userEmail = userSession?.user?.email;
-    const userId = userSession?.user?.id; // <--- 1. Récupérer l'ID utilisateur unique
+    const supabase = await createClient();
+
+const { data: { user } } = await supabase.auth.getUser();
+
+const userEmail = user?.email;
+const userId = user?.id;
 
     // Création de la session de paiement Stripe
     const sessionConfig: Stripe.Checkout.SessionCreateParams = {
