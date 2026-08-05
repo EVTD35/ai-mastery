@@ -56,18 +56,25 @@ const modulesData: Module[] = [
         content: "Pour maîtriser l'intelligence artificielle, il faut arrêter de voir les modèles de langage comme des boîtes magiques ou des entités douées de conscience. Un Large Language Model (LLM) est, fondamentalement, une machine à prédire le mot (ou plutôt le token) suivant.\n\n1. Qu'est-ce qu'un token ?\nUn LLM ne lit pas les mots de la même façon que nous. Il découpe le texte en morceaux appelés *tokens* (qui peuvent être des mots entiers, des syllabes ou des caractères). Chaque token est converti en une suite de chiffres (un vecteur) dans un espace mathématique à haute dimension.\n\n2. Le mécanisme de prédiction probabiliste\nLorsqu'on lui soumet un texte (un prompt), le modèle analyse tout le contexte et calcule une distribution de probabilités pour le token suivant. Il ne 'réfléchit' pas : il choisit statistiquement le mot le plus cohérent par rapport à tout ce qu'il a absorbé durant son entraînement.\n\n3. Les paramètres clés à comprendre :\n• La Température (Temperature) : Elle contrôle la créativité. Une température basse (0.1) rend le modèle prévisible, factuel et rigoureux (idéal pour le code ou la logique). Une température élevée (0.8 ou plus) augmente l'aléa et la créativité (idéal pour le brainstorming ou l'écriture créative).\n• Le Top-p / Top-k : D'autres curseurs qui filtrent les choix de mots probables pour éviter que le modèle ne dérive trop.\n\nPourquoi c'est crucial pour toi :\nEn comprenant que l'IA fonctionne par probabilités et par tokens, tu comprends pourquoi tes prompts doivent être précis, contextuels et structurés. Moins tu laisses de place au hasard dans ton contexte, plus la réponse du LLM sera alignée avec tes attentes.", 
         resources: [
           {
-            type: 'file',
-            title: "Lexique des tokens et paramètres",
-            description: "Fiche mémo détaillée sur la Temperature, le Top-p et la gestion du contexte.",
-            actionText: "Télécharger",
-            actionUrlOrContent: "/fichiers/lexique-tokens.pdf"
-          },
-          {
             type: 'video',
             title: "Comprendre les LLM en vidéo",
-            description: "Démonstration visuelle du fonctionnement probabiliste d'un modèle.",
-            actionText: "Regarder",
-            actionUrlOrContent: "https://youtube.com/watch?v=exemple"
+            description: "Une vidéo claire et pédagogique pour visualiser le fonctionnement interne d'un modèle de langage.",
+            actionText: "Voir la vidéo",
+            actionUrlOrContent: "https://www.youtube.com/watch?v=1RRHr3dFogQ"
+          },
+          {
+            type: 'text',
+            title: "Prompt de test du comportement probabiliste",
+            description: "Un prompt pour tester la manière dont le modèle prédit la suite et gère le contexte.",
+            actionText: "Copier le prompt",
+            actionUrlOrContent: "Agis en tant que laboratoire de test. Je vais te donner une phrase incomplète, et tu dois me proposer les 3 suites possibles les plus probables selon toi, en expliquant le calcul statistique implicite derrière ton choix."
+          },
+          {
+            type: 'file',
+            title: "Lexique des tokens et paramètres (PDF)",
+            description: "Un récapitulatif visuel pour comprendre l'impact de la Temperature et du Top-p.",
+            actionText: "Télécharger",
+            actionUrlOrContent: "/fichiers/lexique-tokens-parametres.pdf"
           }
         ]
       },
