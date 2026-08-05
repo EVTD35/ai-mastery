@@ -4,12 +4,11 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { supabase } from '@/lib/libsupabaseClient';
 
-// Structure des modules et de leurs leçons textuelles
+// Structure des modules et de leurs leçons textuelles (sans durées)
 const modulesData = [
   {
     id: '01',
     title: 'Fondamentaux & Prompt Engineering Avancé',
-    duration: '9h 20min',
     lessons: [
       { title: 'Bienvenue', content: "Bienvenue dans le premier module de la formation. Ici, nous allons poser les bases indispensables pour comprendre et maîtriser les grands modèles de langage." },
       { title: "Anatomie d'un LLM : ce qu'il faut vraiment savoir", content: "Découvrez comment un modèle de langage traite l'information, anticipe les tokens et génère du texte de manière probabiliste." },
@@ -21,7 +20,6 @@ const modulesData = [
   {
     id: '02',
     title: 'Création de Produits & Services',
-    duration: '13h 05min',
     lessons: [
       { title: 'Du besoin au MVP en une semaine', content: "Comment valider une idée de produit rapidement et concevoir un prototype fonctionnel sans y passer des mois." },
       { title: "Coder une application avec l'IA (sans être dev)", content: "Utilisez les outils de code assisté pour générer, déboguer et déployer des applications web complètes." },
@@ -32,7 +30,6 @@ const modulesData = [
   {
     id: '03',
     title: 'Monétisation & Scale',
-    duration: '10h 40min',
     lessons: [
       { title: 'Packager une offre freelance rentable', content: "Transformez vos compétences en IA en prestations à forte valeur perçue et packagées pour vos clients." },
       { title: 'Fixer ses prix et signer ses premiers clients', content: "Les stratégies de tarification et les techniques de closing adaptées aux services technologiques." },
@@ -119,7 +116,7 @@ export default function DashboardPage() {
           <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-1">
             Bonjour {user?.user_metadata?.full_name || user?.email?.split('@')[0]} , bienvenue dans la Masterclass
           </h1>
-          <p className="text-xs text-gray-400">3 modules • Accès complet à vie • Mises à jour incluses</p>
+          <p className="text-xs text-gray-400">3 piliers de formation • Accès complet à vie • Mises à jour incluses</p>
         </div>
 
         {/* GRILLE CENTRALE (COURS + LISTE DES MODULES DÉROULÉE) */}
@@ -154,20 +151,19 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          {/* LISTE DE TOUS LES MODULES & SOUS-CATÉGORIES (S'affiche entièrement, défilement normal de la page) */}
+          {/* LISTE DE TOUS LES MODULES & SOUS-CATÉGORIES (Flux normal sans durées) */}
           <div className="space-y-4">
             {modulesData.map((mod, modIdx) => (
               <div 
                 key={mod.id} 
                 className="bg-white/[0.02] border border-white/10 rounded-2xl p-4 transition hover:border-white/20"
               >
-                <div className="flex justify-between items-center mb-3">
+                <div className="mb-2">
                   <span className="text-xs font-mono text-blue-400 font-bold">Pilier {mod.id}</span>
-                  <span className="text-xs font-mono text-gray-500">{mod.duration}</span>
                 </div>
                 <h4 className="text-sm font-bold mb-3 text-white">{mod.title}</h4>
                 
-                {/* Liste des leçons (sans icône vidéo, entièrement visible) */}
+                {/* Liste des leçons */}
                 <div className="space-y-1">
                   {mod.lessons.map((lesson, lessonIdx) => {
                     const isSelected = currentModuleIndex === modIdx && currentLessonIndex === lessonIdx;
