@@ -40,14 +40,14 @@ const modulesData: Module[] = [
             title: "Prompt système initial",
             description: "Le prompt de base pour configurer ton assistant aux standards de la formation.",
             actionText: "Copier le prompt",
-            actionUrlOrContent: "Agis en tant qu'expert pédagogique senior et analyse ce problème en découpant chaque étape..."
+            actionUrlOrContent: "Agis en tant qu'expert pédagogique senior et tuteur expert en IA. Ton rôle est de m'accompagner dans la masterclass AI Mastery. Analyse mes questions, décompose les concepts complexes en étapes simples et actionnables, et pousse-moi toujours à pratiquer immédiatement."
           },
           {
             type: 'file',
             title: "Feuille de route de la Masterclass (PDF)",
             description: "Le guide complet au format PDF pour suivre ton parcours d'apprentissage.",
             actionText: "Télécharger",
-            actionUrlOrContent: "/fichiers/feuille-de-route.pdf"
+            actionUrlOrContent: "/fichiers/feuille-de-route-ai-mastery.pdf"
           }
         ]
       },
