@@ -37,7 +37,8 @@ export async function GET(request: Request) {
     if (userEmail) {
       sessionConfig.customer_email = userEmail;
     }
-
+console.log("SESSION UTILISATEUR :", userSession);
+console.log("USER ID ENVOYÉ À STRIPE :", userId);
     // <--- 2. Transmettre l'ID utilisateur à Stripe pour que le webhook le retrouve
     if (userId) {
       sessionConfig.client_reference_id = userId;
