@@ -100,7 +100,7 @@ window.location.href = "/";
                 required 
                 value={name} 
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Titouan"
+                placeholder="Prénom ou Pseudo"
                 className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition"
               />
             </div>
