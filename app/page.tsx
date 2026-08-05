@@ -65,10 +65,20 @@ console.log("HAS PAID :", hasPaid);
       
       {/* NAVBAR */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-[#0b0b0f]/80 border-b border-white/10 px-6 py-4 flex items-center justify-between max-w-7xl mx-auto">
-        <div className="flex items-center space-x-2">
-          <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-          <span className="font-bold text-xl tracking-tight">AI Mastery</span>
-        </div>
+        <div className="flex items-center space-x-3">
+  <svg className="w-8 h-8 rounded-lg shadow-md" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="grad-m" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stopColor="#00ced1"/>
+        <stop offset="100%" stopColor="#1e90ff"/>
+      </linearGradient>
+    </defs>
+    <circle cx="250" cy="250" r="250" fill="#07080c"/>
+    <path d="M130 380 L130 140 L200 230 L250 160 L300 230 L370 140 L370 380 L315 380 L315 230 L250 310 L185 230 L185 380 Z" fill="url(#grad-m)"/>
+    <polygon points="250,90 220,140 280,140" fill="#00ced1"/>
+  </svg>
+  <span className="font-bold text-xl tracking-tight">AI Mastery</span>
+</div>
         <nav className="hidden md:flex space-x-8 text-sm text-gray-400">
           <a href="#programme" className="hover:text-white transition duration-200">Programme</a>
           <a href="#pour-qui" className="hover:text-white transition duration-200">Pour qui ?</a>
