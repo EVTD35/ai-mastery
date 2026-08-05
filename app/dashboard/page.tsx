@@ -40,7 +40,7 @@ const modulesData: Module[] = [
             title: "Prompt système initial",
             description: "Le prompt de base pour configurer ton assistant aux standards de la formation.",
             actionText: "Copier le prompt",
-            actionUrlOrContent: "Agis en tant qu'expert pédagogique senior et tuteur expert en IA. Ton rôle est de m'accompagner dans la masterclass AI Mastery. Analyse mes questions, décompose les concepts complexes en étapes simples et actionnables, et pousse-moi toujours à pratiquer immédiatement."
+            actionUrlOrContent: "Agis en tant qu'expert senior et partenaire de réflexion stratégique. Ton rôle est de m'aider à structurer mes idées, résoudre des problèmes complexes et rédiger des contenus ou du code de haute qualité. Sois direct, pragmatique, évite le jargon inutile, et propose toujours des plans d'action clairs et chiffrés ou structurés par étapes. Si tu as besoin de précisions pour être plus pertinent, pose-moi des questions courtes avant de répondre."
           },
           {
             type: 'file',
