@@ -13,14 +13,26 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Le code SVG du logo est encodé directement ici en Data URI
-const svgLogo = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16 2l10 5.8v11.6L16 25.2 6 19.4V7.8L16 2z" fill="%236366f1"/><path d="M16 12v8" stroke="%23ffffff" stroke-width="2.5" stroke-linecap="round"/><path d="M12 16h8" stroke="%23ffffff" stroke-width="2.5" stroke-linecap="round"/></svg>`;
+// Le code SVG de ton vrai logo M avec la flèche, encodé en Data URI
+const svgLogo = `data:image/svg+xml,${encodeURIComponent(`
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+    <defs>
+      <linearGradient id="grad-m" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#00ced1"/>
+        <stop offset="100%" stop-color="#1e90ff"/>
+      </linearGradient>
+    </defs>
+    <circle cx="250" cy="250" r="250" fill="#07080c"/>
+    <path d="M130 380 L130 140 L200 230 L250 160 L300 230 L370 140 L370 380 L315 380 L315 230 L250 310 L185 230 L185 380 Z" fill="url(#grad-m)"/>
+    <polygon points="250,90 220,140 280,140" fill="#00ced1"/>
+  </svg>
+`)}`;
 
 export const metadata: Metadata = {
   title: "AI Mastery",
   description: "Transformez l'Intelligence Artificielle en un véritable levier de revenus",
   icons: {
-    icon: svgLogo, // <-- Le logo SVG est maintenant directement intégré dans le code !
+    icon: svgLogo, // <-- Ton vrai logo M intégré directement
   },
 };
 
