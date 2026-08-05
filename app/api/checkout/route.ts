@@ -40,7 +40,7 @@ const userId = user?.id;
     if (userEmail) {
       sessionConfig.customer_email = userEmail;
     }
-console.log("SESSION UTILISATEUR :", userSession);
+console.log("UTILISATEUR CONNECTÉ :", user);
 console.log("USER ID ENVOYÉ À STRIPE :", userId);
     // <--- 2. Transmettre l'ID utilisateur à Stripe pour que le webhook le retrouve
     if (userId) {
