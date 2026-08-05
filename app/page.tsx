@@ -87,21 +87,30 @@ console.log("HAS PAID :", hasPaid);
             <Link href="/login" className="text-sm text-gray-300 hover:text-white transition duration-200">Connexion</Link>
           )}
 
-          {/* Bouton dynamique selon l'achat */}
-{user && hasPaid ? (
-  <Link
-    href="/dashboard"
-    className="bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-emerald-600/20 hover:-translate-y-0.5 hover:shadow-emerald-600/40"
-  >
-    Espace membre
-  </Link>
+          {/* Bouton dynamique selon l'état de l'utilisateur */}
+{user ? (
+  hasPaid ? (
+    <Link
+      href="/dashboard"
+      className="bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-emerald-600/20 hover:-translate-y-0.5 hover:shadow-emerald-600/40"
+    >
+      Espace membre
+    </Link>
+  ) : (
+    <a
+      href="/api/checkout"
+      className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-blue-600/20 hover:-translate-y-0.5 hover:shadow-blue-600/40"
+    >
+      Accéder à la formation
+    </a>
+  )
 ) : (
-  <a
-    href="/api/checkout"
+  <Link
+    href="/login"
     className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-blue-600/20 hover:-translate-y-0.5 hover:shadow-blue-600/40"
   >
     Accéder à la formation
-  </a>
+  </Link>
 )}
 
         </div>
@@ -326,9 +335,21 @@ console.log("HAS PAID :", hasPaid);
               </div>
               <span className="text-emerald-400 block text-xs font-medium mb-8">Paiement unique • TVA incluse</span>
 
-              <a href="/api/checkout" className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-xl shadow-blue-600/30 flex items-center justify-center space-x-2 hover:-translate-y-0.5">
-                <span>🔒 Créer un compte & payer</span>
-              </a>
+              {user ? (
+  hasPaid ? (
+    <Link href="/dashboard" className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-xl shadow-emerald-600/30 flex items-center justify-center space-x-2 hover:-translate-y-0.5">
+      <span>🚀 Accéder à mon espace membre</span>
+    </Link>
+  ) : (
+    <a href="/api/checkout" className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-xl shadow-blue-600/30 flex items-center justify-center space-x-2 hover:-translate-y-0.5">
+      <span>🔒 Procéder au paiement</span>
+    </a>
+  )
+) : (
+  <Link href="/login" className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-xl shadow-blue-600/30 flex items-center justify-center space-x-2 hover:-translate-y-0.5">
+    <span>🔒 Créer un compte & payer</span>
+  </Link>
+)}
               <span className="block text-center text-xs text-gray-500 mt-4">Paiement 100% sécurisé — propulsé par <strong>Stripe</strong></span>
             </div>
 
