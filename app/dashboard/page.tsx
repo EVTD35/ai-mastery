@@ -122,7 +122,7 @@ export default function DashboardPage() {
           <p className="text-xs text-gray-400">3 modules • Accès complet à vie • Mises à jour incluses</p>
         </div>
 
-        {/* GRILLE CENTRALE (COURS + LISTE DES MODULES) */}
+        {/* GRILLE CENTRALE (COURS + LISTE DES MODULES DÉROULÉE) */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           
           {/* ZONE DE LECTURE DU TEXTE (À gauche) */}
@@ -154,8 +154,8 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          {/* LISTE DES MODULES & SOUS-CATÉGORIES (À droite - Scroll indépendant et design épuré) */}
-          <div className="space-y-4 lg:sticky lg:top-8 lg:max-h-[calc(100vh-120px)] lg:overflow-y-auto pr-2 custom-scrollbar">
+          {/* LISTE DE TOUS LES MODULES & SOUS-CATÉGORIES (S'affiche entièrement, défilement normal de la page) */}
+          <div className="space-y-4">
             {modulesData.map((mod, modIdx) => (
               <div 
                 key={mod.id} 
@@ -167,7 +167,7 @@ export default function DashboardPage() {
                 </div>
                 <h4 className="text-sm font-bold mb-3 text-white">{mod.title}</h4>
                 
-                {/* Liste des leçons (sans icône vidéo, design textuel épuré) */}
+                {/* Liste des leçons (sans icône vidéo, entièrement visible) */}
                 <div className="space-y-1">
                   {mod.lessons.map((lesson, lessonIdx) => {
                     const isSelected = currentModuleIndex === modIdx && currentLessonIndex === lessonIdx;
