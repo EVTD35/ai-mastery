@@ -49,32 +49,31 @@ export default function DashboardPage() {
   const [currentLessonIndex, setCurrentLessonIndex] = useState(0);
 
   useEffect(() => {
-  async function checkUserSession() {
-    const { data: { session } } = await supabase.auth.getSession();
+    async function checkUserSession() {
+      const { data: { session } } = await supabase.auth.getSession();
 
-    if (!session) {
-      window.location.href = '/login';
-      return;
+      if (!session) {
+        window.location.href = '/login';
+        return;
+      }
+
+      const { data: profile, error } = await supabase
+        .from('profiles')
+        .select('has_paid')
+        .eq('id', session.user.id)
+        .single();
+
+      if (!profile?.has_paid) {
+        window.location.href = '/';
+        return;
+      }
+
+      setUser(session.user);
+      setLoading(false);
     }
 
-    const { data: profile, error } = await supabase
-      .from('profiles')
-      .select('has_paid')
-      .eq('id', session.user.id)
-      .single();
-
-
-    if (!profile?.has_paid) {
-      window.location.href = '/';
-      return;
-    }
-
-    setUser(session.user);
-    setLoading(false);
-  }
-
-  checkUserSession();
-}, []);
+    checkUserSession();
+  }, []);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -126,7 +125,7 @@ export default function DashboardPage() {
         {/* GRILLE CENTRALE (COURS + LISTE DES MODULES) */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           
-          {/* ZONE DE LECTURE DU TEXTE (À gauche - Remplace la vidéo) */}
+          {/* ZONE DE LECTURE DU TEXTE (À gauche) */}
           <div className="lg:col-span-2 bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/10 p-6 md:p-8 rounded-3xl shadow-2xl backdrop-blur-md">
             <div className="mb-4 pb-4 border-b border-white/10 flex justify-between items-center">
               <div>
@@ -140,36 +139,36 @@ export default function DashboardPage() {
               </span>
             </div>
 
-            {/* Emplacement du texte modifiable */}
+            {/* Emplacement du texte de formation */}
             <div className="min-h-[320px] text-gray-300 text-sm md:text-base leading-relaxed space-y-4 py-4">
               <p>{activeLesson.content}</p>
             </div>
 
             {/* Pied de la zone de lecture */}
             <div className="pt-6 border-t border-white/10 flex items-center justify-between text-xs text-gray-400">
-              <span>EN COURS DE LECTURE</span>
+              <span>MODULE ÉCRIT</span>
               <span className="text-emerald-400 flex items-center space-x-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-                <span>Module actif</span>
+                <span>En cours de lecture</span>
               </span>
             </div>
           </div>
 
-          {/* LISTE DES MODULES & SOUS-CATÉGORIES (À droite - Style Accordéon / Sidebar) */}
-          <div className="space-y-4 lg:max-h-[750px] lg:overflow-y-auto pr-1">
+          {/* LISTE DES MODULES & SOUS-CATÉGORIES (À droite - Scroll indépendant et design épuré) */}
+          <div className="space-y-4 lg:sticky lg:top-8 lg:max-h-[calc(100vh-120px)] lg:overflow-y-auto pr-2 custom-scrollbar">
             {modulesData.map((mod, modIdx) => (
               <div 
                 key={mod.id} 
-                className="bg-white/[0.02] border border-white/10 rounded-2xl p-4 transition"
+                className="bg-white/[0.02] border border-white/10 rounded-2xl p-4 transition hover:border-white/20"
               >
                 <div className="flex justify-between items-center mb-3">
-                  <span className="text-xs font-mono text-blue-500 font-bold">{mod.id}</span>
+                  <span className="text-xs font-mono text-blue-400 font-bold">Pilier {mod.id}</span>
                   <span className="text-xs font-mono text-gray-500">{mod.duration}</span>
                 </div>
                 <h4 className="text-sm font-bold mb-3 text-white">{mod.title}</h4>
                 
-                {/* Liste des leçons/sous-catégories */}
-                <div className="space-y-1.5">
+                {/* Liste des leçons (sans icône vidéo, design textuel épuré) */}
+                <div className="space-y-1">
                   {mod.lessons.map((lesson, lessonIdx) => {
                     const isSelected = currentModuleIndex === modIdx && currentLessonIndex === lessonIdx;
                     return (
@@ -179,16 +178,13 @@ export default function DashboardPage() {
                           setCurrentModuleIndex(modIdx);
                           setCurrentLessonIndex(lessonIdx);
                         }}
-                        className={`w-full text-left px-3 py-2.5 rounded-xl text-xs flex items-center justify-between transition ${
+                        className={`w-full text-left px-3 py-2.5 rounded-xl text-xs transition flex items-center ${
                           isSelected 
                             ? 'bg-blue-600/20 border border-blue-500/40 text-white font-medium' 
                             : 'hover:bg-white/5 text-gray-400 hover:text-gray-200'
                         }`}
                       >
-                        <div className="flex items-center space-x-2 truncate">
-                          <span className="text-blue-400 text-xs">▶</span>
-                          <span className="truncate">{lesson.title}</span>
-                        </div>
+                        <span className="truncate">{lesson.title}</span>
                       </button>
                     );
                   })}
