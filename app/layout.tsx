@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "AI Mastery",
   description: "Transformez l'Intelligence Artificielle en un véritable levier de revenus",
+  icons: {
+    icon: "/icon.svg", // <-- C'est cette ligne qu'on ajoute ici
+  },
 };
 
 export default function RootLayout({
