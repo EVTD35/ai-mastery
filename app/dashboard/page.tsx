@@ -10,7 +10,11 @@ const modulesData = [
     id: '01',
     title: 'Fondamentaux & Prompt Engineering Avancé',
     lessons: [
-      { title: 'Bienvenue', content: "Bienvenue dans le premier module de la formation. Ici, nous allons poser les bases indispensables pour comprendre et maîtriser les grands modèles de langage.", resource: "Prompt système de base : 'Agis en tant qu'expert pédagogique senior...'" },
+      { 
+        title: 'Bienvenue', 
+        content: "Bienvenue dans AI Mastery. Tu viens de franchir un cap décisif.\n\nIci, pas de théorie superficielle ou de concepts abstraits : tu vas apprendre à maîtriser l'intelligence artificielle comme un véritable levier de puissance et de productivité.\n\nQue tu souhaites automatiser ton quotidien, concevoir des produits de rupture ou scaler ton activité, ce programme a été structuré pour t'emmener de zéro à l'élite opérationnelle.\n\nComment tirer le meilleur de cette formation :\n• Avance étape par étape : Ne saute pas les fondations, chaque pilier repose sur le précédent.\n• Teste en direct : Ouvre une fenêtre avec ton outil d'IA et applique immédiatement les concepts et les prompts fournis.\n• Utilise les ressources : Des mémos et des templates sont à ta disposition dans chaque module pour accélérer ton passage à l'action.\n\nPrends le temps de t'approprier chaque leçon, marque tes progrès au fur et à mesure, et prépare-toi à transformer ta façon de travailler. Bon apprentissage !", 
+        resource: "Prompt système de base : 'Agis en tant qu'expert pédagogique senior et analyse ce problème en découpant chaque étape...'" 
+      },
       { title: "Anatomie d'un LLM : ce qu'il faut vraiment savoir", content: "Découvrez comment un modèle de langage traite l'information, anticipe les tokens et génère du texte de manière probabiliste.", resource: "Fiche mémo : Lexique des tokens et des paramètres (Temperature, Top-p)." },
       { title: 'Le framework de prompt en 5 couches', content: "Une méthode rigoureuse pour structurer vos requêtes : Rôle, Contexte, Tâche, Contraintes et Format de sortie.", resource: "Template copiable : [Rôle] + [Contexte] + [Tâche] + [Contraintes] + [Format]" },
       { title: 'Chaînage, contexte et few-shot avancé', content: "Apprenez à guider l'IA pas à pas en lui fournissant des exemples précis pour éliminer les hallucinations.", resource: "Exemple few-shot type pour classification de tickets support." },
