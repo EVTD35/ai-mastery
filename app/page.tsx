@@ -174,30 +174,24 @@ console.log("HAS PAID :", hasPaid);
       </section>
 
       {/* BANDEAU INTERMÉDIAIRE DÉFILANT */}
-      <div className="py-10 border-y border-white/5 overflow-hidden bg-white/[0.01] text-gray-500 text-base md:text-lg font-mono tracking-widest uppercase relative">
-        <div className="animate-marquee flex space-x-12">
-          <span className="flex items-center space-x-12">
-            <span>• PROMPT ENGINEERING</span>
-            <span>• AUTOMATISATION</span>
-            <span>• FREELANCE</span>
-            <span>• SCALE</span>
-            <span>• PROMPT ENGINEERING</span>
-            <span>• AUTOMATISATION</span>
-            <span>• FREELANCE</span>
-            <span>• SCALE</span>
-          </span>
-          <span className="flex items-center space-x-12" aria-hidden="true">
-            <span>• PROMPT ENGINEERING</span>
-            <span>• AUTOMATISATION</span>
-            <span>• FREELANCE</span>
-            <span>• SCALE</span>
-            <span>• PROMPT ENGINEERING</span>
-            <span>• AUTOMATISATION</span>
-            <span>• FREELANCE</span>
-            <span>• SCALE</span>
-          </span>
-        </div>
-      </div>
+<div className="py-6 border-y border-white/5 overflow-hidden bg-white/[0.01] text-gray-400 text-3xl md:text-5xl font-extrabold font-mono tracking-wider uppercase relative flex whitespace-nowrap">
+  <div className="animate-marquee flex space-x-12 shrink-0 items-center">
+    <span className="flex items-center space-x-12">
+      <span>• PROMPT ENGINEERING</span>
+      <span>• AUTOMATISATION</span>
+      <span>• FREELANCE</span>
+      <span>• SCALE</span>
+    </span>
+  </div>
+  <div className="animate-marquee flex space-x-12 shrink-0 items-center" aria-hidden="true">
+    <span className="flex items-center space-x-12">
+      <span>• PROMPT ENGINEERING</span>
+      <span>• AUTOMATISATION</span>
+      <span>• FREELANCE</span>
+      <span>• SCALE</span>
+    </span>
+  </div>
+</div>
 
       {/* SECTION 3 PILIERS */}
       <section id="programme" className="max-w-7xl mx-auto px-6 py-24 scroll-mt-20">
