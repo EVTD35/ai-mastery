@@ -126,20 +126,25 @@ const modulesData: Module[] = [
         ]
       },
       { 
-        title: 'Atelier : bibliothèque de prompts réutilisables', 
-        content: "Construisez votre propre catalogue de prompts prêts à l'emploi pour vos tâches quotidiennes.",
+        title: "Atelier : Bibliothèque de prompts réutilisables", 
+        content: "Le propre d'un professionnel de l'IA est de ne jamais repartir d'une page blanche. Conserver et structurer ses meilleurs prompts dans une bibliothèque centralisée permet de gagner un temps précieux et d'industrialiser sa productivité.\n\n1. Pourquoi créer sa bibliothèque de prompts ?\n• Gain de temps immédiat : Fini de réécrire les mêmes consignes à chaque nouveau projet.\n• Amélioration continue : Un prompt s'affine avec le temps. Centraliser tes versions te permet de traquer ce qui fonctionne le mieux.\n• Standardisation : Si tu travailles en équipe, c'est le meilleur moyen de partager les 'best practices' de l'entreprise.\n\n2. Comment structurer chaque prompt de sa bibliothèque ?\nUn bon prompt réutilisable doit être pensé comme un template avec des variables (entre crochets `[comme ceci]`) :\n• Le Titre & l'Objectif : À quoi sert ce prompt et dans quel cas l'utiliser ?\n• Le corps modulaire : Les 5 couches fixes (Rôle, Contexte, Tâche, Contraintes, Format).\n• Les balises de variables : Les zones que l'utilisateur doit adapter rapidement selon son besoin du moment.\n\n3. L'organisation idéale\nClasse tes prompts par grands départements métier ou par cas d'usage (Marketing, Code & Tech, Management & RH, Création de contenu, Productivité & Ops).", 
         resources: [
           {
+            type: 'text',
+            title: "Méthode de classification des prompts",
+            description: "Les règles d'or pour classer et nommer efficacement tes prompts dans ton espace de travail.",
+            actionText: "Voir les règles",
+            actionUrlOrContent: "Classe tes prompts par cas d'usage (Marketing, Code, Stratégie, Ops) et utilise un format de nommage clair : [CATEGORIE] - Nom du Prompt - v1.0."
+          },
+          {
             type: 'file',
-            title: "Pack de 10 prompts productivité",
-            description: "Catalogue complet de templates pour automatiser vos tâches récurrentes.",
+            title: "La Bible des Prompts : 50+ Templates Métiers (PDF)",
+            description: "Le catalogue massif et exhaustif regroupant une bibliothèque géante de prompts prêts à l'emploi pour tous les départements.",
             actionText: "Télécharger",
-            actionUrlOrContent: "/fichiers/pack-10-prompts.pdf"
+            actionUrlOrContent: "/fichiers/catalogue-bibliotheque-prompts.pdf"
           }
         ]
-      }
-    ]
-  },
+      },
   {
     id: '02',
     title: 'Création de Produits & Services',
