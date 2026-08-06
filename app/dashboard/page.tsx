@@ -164,7 +164,33 @@ const modulesData: Module[] = [
           }
         ]
       },
-      { title: "Coder une application avec l'IA (sans être dev)", content: "Utilisez les outils de code assisté pour générer, déboguer et déployer des applications web complètes." },
+      { 
+        title: "Coder une application avec l'IA (sans être dev)", 
+        content: "La barrière entre l'idée et le code a totalement disparu. Aujourd'hui, l'IA ne se contente plus de répondre à du texte : elle conçoit, structure, assemble et déploie des applications web et mobiles entières à partir de consignes en langage naturel.\n\n1. Le nouveau rôle du créateur : Product Engineer\nTu n'as plus besoin de connaître par cœur la syntaxe de JavaScript ou de Python. Ton rôle est d'avoir une vision claire de ton architecture, de formuler des consignes de développement chirurgicales et de piloter l'IA comme un chef de projet technique.\n\n2. Le workflow complet de la création au déploiement\n• Étape 1 : Le cahier des charges textuel (définir les fonctionnalités, l'interface et les interactions avec un LLM spécialisé comme Claude).\n• Étape 2 : L'assemblage visuel et logique (générer les blocs de code HTML/CSS/JS et les tester instantanément).\n• Étape 3 : L'hébergement et la mise en ligne (transférer le code sur une plateforme de déploiement instantané pour obtenir une URL publique).\n• Étape 4 : La conversion mobile (transformer ta web app en application installable sur smartphone via des outils no-code/low-code).\n\nPourquoi ça change tout :\nTu peux désormais prototyper, tester et lancer un produit logiciel viable sur le marché en quelques minutes, sans dépendre d'une agence ou d'une équipe technique externe.", 
+        resources: [
+          {
+            type: 'video',
+            title: "Créer une App IA complète en 10 min (sans coder)",
+            description: "Une démonstration pratique de A à Z pour concevoir, tester, héberger et transformer une application en APK mobile grâce à l'IA.",
+            actionText: "Voir la vidéo",
+            actionUrlOrContent: "https://www.youtube.com/watch?v=XxSz67I_mb4"
+          },
+          {
+            type: 'text',
+            title: "Prompt de génération de cahier des charges technique",
+            description: "Un prompt structuré pour transformer une idée brute en plan de développement technique pour l'IA.",
+            actionText: "Copier le prompt",
+            actionUrlOrContent: "Agis en tant qu'architecte logiciel senior. Je souhaite créer une application web qui fait [Décris ton application]. Rédige un cahier des charges technique clair incluant : 1) La structure des fichiers (HTML, CSS, JS), 2) Les composants UI indispensables, 3) La logique des données et des interactions, 4) Un plan d'implémentation étape par étape pour que je puisse le coder avec l'aide d'un LLM."
+          },
+          {
+            type: 'file',
+            title: "Le Guide du Code Assisté par IA (PDF)",
+            description: "Le livre blanc complet détaillant le workflow de zéro à la mise en ligne d'une application sans savoir coder.",
+            actionText: "Télécharger",
+            actionUrlOrContent: "/fichiers/guide-code-assiste-ia.pdf"
+          }
+        ]
+      },
       { title: 'Pipelines de contenu automatisés', content: "Mettez en place des flux de travail automatisés pour produire et diffuser du contenu à grande échelle." },
       { title: 'Automatiser la prospection de bout en bout', content: "Créez un système autonome pour identifier des clients, personnaliser les messages et relancer automatiquement." }
     ]
