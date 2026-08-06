@@ -79,15 +79,29 @@ const modulesData: Module[] = [
         ]
       },
       { 
-        title: 'Le framework de prompt en 5 couches', 
-        content: "Une méthode rigoureuse pour structurer vos requêtes : Rôle, Contexte, Tâche, Contraintes et Format de sortie.",
+        title: "Le framework de prompt en 5 couches", 
+        content: "Un mauvais prompt donne une réponse floue. Un prompt structuré selon le framework des 5 couches transforme l'IA en un assistant ultra-précis et chirurgical.\n\nVoici les 5 couches indispensables pour bâtir un prompt infaillible :\n\n1. Couche 1 : Le Rôle (Who)\nDéfinis clairement l'identité et l'expertise de l'IA. Ex: *'Agis en tant qu'expert en Growth Marketing et copywriter senior.'*\n\n2. Couche 2 : Le Contexte (Context)\nFournis la situation de départ, les contraintes métier ou le background nécessaire. Ex: *'Je lance une application de fitness pour les cadres stressés qui manquent de temps.'*\n\n3. Couche 3 : La Tâche (Task)\nExprime précisément l'action attendue, sans ambiguïté. Ex: *'Rédige une séquence de 3 e-mails de prospection pour convertir de futurs bêta-testeurs.'*\n\n4. Couche 4 : Les Contraintes (Constraints)\nFixe les limites, ce qu'il faut faire et ne pas faire. Ex: *'Pas de jargon marketing creux, des phrases courtes, ton direct et percutant, maximum 150 mots par e-mail.'*\n\n5. Couche 5 : Le Format de Sortie (Output)\nSpécifie la structure exacte de la réponse attendue. Ex: *'Présente chaque e-mail sous forme de bloc avec un objet accrocheur, un corps de texte et un appel à l'action distinct.'*\n\nPourquoi cette méthode change tout :\nEn séparant clairement ces 5 dimensions, tu supprimes l'ambiguïté. L'IA n'a plus à deviner ce que tu veux : elle applique une méthodologie rigoureuse.", 
         resources: [
           {
+            type: 'video',
+            title: "Maîtriser le Prompt Engineering en vidéo",
+            description: "Un guide complet pour comprendre comment structurer ses demandes et exploiter tout le potentiel des LLM.",
+            actionText: "Voir la vidéo",
+            actionUrlOrContent: "https://www.youtube.com/watch?v=H89bSRvuY14"
+          },
+          {
             type: 'text',
-            title: "Template du framework en 5 couches",
-            description: "Structure prête à l'emploi pour rédiger des prompts d'une précision chirurgicale.",
-            actionText: "Copier",
-            actionUrlOrContent: "[Rôle] : ...\n[Contexte] : ...\n[Tâche] : ...\n[Contraintes] : ...\n[Format] : ..."
+            title: "Le 'Prompt Master' (Template universel)",
+            description: "Le modèle squelette en 5 couches prêt à être copié-collé et rempli pour tous tes cas d'usage.",
+            actionText: "Copier le prompt",
+            actionUrlOrContent: "Agis en tant que [Rôle précis]. Contexte : [Décris ta situation, ton projet et ton public cible]. Tâche : [Ce que l'IA doit accomplir exactement]. Contraintes : [Ce qu'il faut respecter absolument, ton, limites]. Format de sortie : [Structure attendue de la réponse : tableaux, listes, blocs...]."
+          },
+          {
+            type: 'file',
+            title: "La Cheat Sheet du Framework 5 Couches (PDF)",
+            description: "Le mémo visuel récapitulatif des 5 couches pour structurer tes prompts à chaque instant.",
+            actionText: "Télécharger",
+            actionUrlOrContent: "/fichiers/cheat-sheet-prompt-5-couches.pdf"
           }
         ]
       },
