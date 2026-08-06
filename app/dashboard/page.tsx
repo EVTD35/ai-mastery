@@ -137,7 +137,9 @@ const modulesData: Module[] = [
             actionUrlOrContent: "/fichiers/catalogue-bibliotheque-prompts.pdf"
           }
         ]
-      },
+      }
+    ]
+  },
   {
     id: '02',
     title: 'Création de Produits & Services',
