@@ -144,7 +144,26 @@ const modulesData: Module[] = [
     id: '02',
     title: 'Création de Produits & Services',
     lessons: [
-      { title: 'Du besoin au MVP en une semaine', content: "Comment valider une idée de produit rapidement et concevoir un prototype fonctionnel sans y passer des mois." },
+      { 
+        title: 'Du besoin au MVP en une semaine', 
+        content: "La plus grande erreur d'un créateur est de passer des mois à coder ou concevoir un produit parfait en secret, pour s'apercevoir au lancement que personne n'en veut. La méthode MVP (Minimum Viable Product) consiste à construire la version la plus simple possible de ton produit qui résout un vrai problème, afin de la tester immédiatement sur le marché.\n\n1. Étape 1 : Identifier une vraie friction (Jours 1 et 2)\nNe pars pas de ton idée, pars du problème de tes utilisateurs. Une bonne idée de produit naît d'une frustration récurrente, coûteuse ou chronophage que les gens ont déjà.\n\n2. Étape 2 : Le découpage minimaliste (Jour 3)\nRéduis les fonctionnalités de ton produit à son strict minimum vital. Si ton application résout un seul problème majeur avec brio, elle a de la valeur. Élimine tout le superflu (pas de design complexe, pas de fonctionnalités 'nice-to-have').\n\n3. Étape 3 : Le prototypage accéléré par l'IA (Jours 4 et 5)\nC'est ici que l'IA change la donne. Au lieu d'écrire des milliers de lignes de code ou de faire des maquettes complexes, utilise l'IA pour générer la structure, les interfaces et la logique de ton prototype en quelques heures.\n\n4. Étape 4 : Le test de marché (Jours 6 et 7)\nMets ton prototype entre les mains de tes premiers bêta-testeurs ou prospects. Observe leurs retours, regarde où ils bloquent et valide s'ils sont prêts à payer pour résoudre leur problème.\n\nPourquoi c'est crucial :\nL'objectif d'un MVP n'est pas d'être parfait, mais d'apprendre le plus vite possible à moindre coût.", 
+        resources: [
+          {
+            type: 'text',
+            title: "Prompt de cadrage de MVP",
+            description: "Un prompt pour forcer l'IA à analyser ton idée et à éliminer tout le superflu pour concevoir un MVP en 7 jours.",
+            actionText: "Copier le prompt",
+            actionUrlOrContent: "Agis en tant qu'expert en Product Management et spécialiste Lean Startup. Je souhaite créer un produit pour répondre à ce besoin : [Décris ton idée]. Aide-moi à concevoir un plan de MVP strict sur 7 jours. Décompose pour chaque jour les actions à mener et liste uniquement les 3 fonctionnalités absolument vitales pour lancer une première version sans superflu."
+          },
+          {
+            type: 'file',
+            title: "Le Framework MVP en 7 Jours (PDF)",
+            description: "Le guide méthodologique complet et la feuille de route pour valider ton idée de produit en une semaine.",
+            actionText: "Télécharger",
+            actionUrlOrContent: "/fichiers/framework-mvp-7-jours.pdf"
+          }
+        ]
+      },
       { title: "Coder une application avec l'IA (sans être dev)", content: "Utilisez les outils de code assisté pour générer, déboguer et déployer des applications web complètes." },
       { title: 'Pipelines de contenu automatisés', content: "Mettez en place des flux de travail automatisés pour produire et diffuser du contenu à grande échelle." },
       { title: 'Automatiser la prospection de bout en bout', content: "Créez un système autonome pour identifier des clients, personnaliser les messages et relancer automatiquement." }
