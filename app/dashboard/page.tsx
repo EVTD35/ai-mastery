@@ -106,15 +106,22 @@ const modulesData: Module[] = [
         ]
       },
       { 
-        title: 'Chaînage, contexte et few-shot avancé', 
-        content: "Apprenez à guider l'IA pas à pas en lui fournissant des exemples précis pour éliminer les hallucinations.",
+        title: "Enchaînage, contexte et few-shot avancé", 
+        content: "Un LLM est puissant sur une seule tâche, mais il devient redoutable lorsqu'on combine les techniques avancées : le chaînage (chaining), la gestion fine du contexte et le few-shot prompting.\n\n1. Le Chaînage de Prompts (Prompt Chaining)\nPlutôt que de vouloir tout obtenir en une seule commande complexe, décompose ton objectif en une suite d'actions logiques. Chaque étape nourrit la suivante :\n• Étape 1 : Analyse et extraction des besoins.\n• Étape 2 : Rédaction d'un plan ou d'une structure.\n• Étape 3 : Génération et optimisation du contenu final.\n\n2. Le Few-Shot Prompting (Donner des exemples)\nAu lieu d'expliquer ce que tu veux avec de longs discours, montre-le à l'IA. En lui fournissant 2 ou 3 exemples précis de ce que tu attends (format d'entrée -> format de sortie idéal), le modèle comprend instantanément le style, le ton et la structure exacte.\n\n3. La gestion du contexte long\nPlus une conversation avance, plus le modèle doit traiter de tokens. Apprends à purger l'inutile, à relancer des sessions ciblées (agents persistants) et à injecter uniquement les données fraîches pour éviter la dilution de l'attention de l'IA.\n\nPourquoi c'est l'étape supérieure :\nC'est la maîtrise de ces trois techniques combinées qui te permet d'automatiser de vrais processus complexes et de concevoir des applications ou des workflows sans friction.", 
         resources: [
           {
+            type: 'text',
+            title: "Modèle de Few-Shot Prompting",
+            description: "Un template structuré intégrant des blocs d'exemples (Input / Output) pour calibrer le style du LLM.",
+            actionText: "Copier le prompt",
+            actionUrlOrContent: "Agis en tant qu'expert. Je souhaite que tu rédiges [Objectif]. Pour cela, voici des exemples précis du format et du style attendus :\n\n[Exemple 1]\nEntrée : ...\nSortie idéale : ...\n\n[Exemple 2]\nEntrée : ...\nSortie idéale : ...\n\nApplique maintenant cette même logique et ce même style pour la requête suivante : [Ta requête finale]."
+          },
+          {
             type: 'file',
-            title: "Guide pratique du Few-Shot Prompting",
-            description: "Exemples concrets de classification et de génération assistée par exemples.",
+            title: "Guide Avancé des Workflows & Prompts en Chaîne (PDF)",
+            description: "Le livre blanc complet détaillant l'architecture des chaînes de prompts, le few-shot et l'hygiène de contexte.",
             actionText: "Télécharger",
-            actionUrlOrContent: "/fichiers/guide-few-shot.pdf"
+            actionUrlOrContent: "/fichiers/guide-workflows-prompt-chaining.pdf"
           }
         ]
       },
