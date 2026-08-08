@@ -268,7 +268,46 @@ Automatiser ne signifie pas spammer :
     id: '03',
     title: 'Monétisation & Scale',
     lessons: [
-      { title: 'Packager une offre freelance rentable', content: "Transformez vos compétences en IA en prestations à forte valeur perçue et packagées pour vos clients." },
+      {
+  title: "Packager une offre freelance rentable",
+  content: `Dans cette section, nous quittons le piège du taux journalier moyen (TJM) pour structurer des offres packagées basées sur une architecture de confiance. L'objectif : vendre un résultat progressif et un accompagnement à haute valeur perçue plutôt que du temps de travail.
+
+1. La fin du TJM et des promesses démesurées
+Face à un marché devenu plus sceptique, les promesses agressives et irréalistes ne fonctionnent plus. Le positionnement d'élite repose sur l'authenticité, la transparence et le "Value-Based Pricing". Le client n'achète pas vos heures, il achète un chemin crédible et un accompagnement sur-mesure.
+
+2. Les piliers d'une offre freelance irrésistible
+Pour structurer votre offre haut de gamme :
+• Le Persona Psychographique : Ciblez un profil ultra-précis et répondez à son dialogue interne (ses doutes, ses freins à 2h du matin).
+• Le Chemin Crédible : Décomposez la transformation en étapes progressives logiques (ex: valider les bases en 2 semaines, premier résultat en 30 jours, système complet en 90 jours) plutôt que de brandir une promesse magique inatteignable.
+• L'empilement de preuves narratives : Racontez le parcours de vos clients (le avant/après détaillé, les victoires) plutôt que d'afficher de simples chiffres bruts.
+• Les micro-transformations (Aperçu) : Permettez à votre prospect de goûter à votre expertise ou de valider une petite victoire avant même l'achat de l'accompagnement complet.
+
+3. Vendre l'implémentation et l'accompagnement
+L'information brute est aujourd'hui gratuite et accessible partout. Vos clients ne payent pas pour de la théorie, mais pour l'implémentation, la responsabilisation, le sur-mesure et l'accompagnement personnalisé que vous leur apportez au quotidien.`,
+  resources: [
+    {
+      type: 'video',
+      title: "Comment vendre une offre High Ticket sans lancement",
+      description: "Une masterclass stratégique détaillée sur l'architecture d'une offre de confiance et la psychologie de vente d'expertise.",
+      actionText: "Voir la vidéo",
+      actionUrlOrContent: "https://www.youtube.com/watch?v=RB4DVHcyaUM"
+    },
+    {
+      type: 'text',
+      title: "Prompt d'aide à la création d'offre packagée",
+      description: "Le prompt stratégique pour transformer vos compétences brutes en une offre freelance haut de gamme structurée et prête à vendre.",
+      actionText: "Copier le prompt",
+      actionUrlOrContent: "Agis en tant que directeur commercial et expert en pricing B2B. Je propose actuellement les services suivants en freelance : [Décris tes compétences ou prestations]. Aide-moi à packager ces compétences en une offre globale haut de gamme orientée sur le résultat (et non sur le temps passé). Propose-moi un nom d'offre percutant, la liste exacte des livrables inclus, un argumentaire commercial axé sur le retour sur investissement (ROI) pour le client, et une structure de prix en deux paliers."
+    },
+    {
+      type: 'file',
+      title: "Le Guide du Packaging d'Offre Rentable (PDF)",
+      description: "Le support de cours complet détaillant l'architecture de confiance, le pricing par la valeur et la grille tarifaire.",
+      actionText: "Télécharger",
+      actionUrlOrContent: "/fichiers/packager-offre-freelance.pdf"
+    }
+  ]
+},
       { title: 'Fixer ses prix et signer ses premiers clients', content: "Les stratégies de tarification et les techniques de closing adaptées aux services technologiques." },
       { title: 'Construire un micro-SaaS automatisé', content: "Lancez un mini-logiciel payant en ligne capable de tourner en arrière-plan avec une intervention humaine minimale." },
       { title: "Scaler : systèmes, délégation et revenus récurrents", content: "Passez de l'artisanat à une structure industrialisée pour pérenniser et accroître votre chiffre d'affaires." }
