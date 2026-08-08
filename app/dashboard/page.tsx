@@ -214,7 +214,7 @@ const modulesData: Module[] = [
     - **Soignez le prompt système :** Plus vos instructions d'automatisation sont précises sur le ton, la mise en forme (Markdown) et les contraintes, moins vous aurez de corrections manuelles à effectuer.
   `,
   pdfResource: "pipeline-contenu-automatise.pdf"
-}
+},
   {
     id: '03',
     title: 'Monétisation & Scale',
