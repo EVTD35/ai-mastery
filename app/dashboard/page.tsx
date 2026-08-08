@@ -277,7 +277,7 @@ Automatiser ne signifie pas spammer :
       actionUrlOrContent: "/fichiers/automatiser-prospection.pdf"
     }
   ]
-},    
+},
   {
     id: '03',
     title: 'Monétisation & Scale',
