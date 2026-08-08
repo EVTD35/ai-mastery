@@ -232,9 +232,11 @@ Automatiser ne signifie pas perdre le contrôle :
       description: "Le support de cours complet détaillant l'architecture technique, les outils no-code et la checklist d'implémentation.",
       actionText: "Télécharger",
       actionUrlOrContent: "/fichiers/pipeline-contenu-automatise.pdf"
-    }
-  ]
-},
+      }
+        ]
+      } // <--- Fermeture de l'objet de la leçon "Pipelines de contenu automatisés" (PAS de virgule ici si c'est la dernière leçon)
+    ] // <--- Fermeture du tableau lessons: [ ... ] du Pilier 02
+  },    
   {
     id: '03',
     title: 'Monétisation & Scale',
@@ -245,7 +247,7 @@ Automatiser ne signifie pas perdre le contrôle :
       { title: "Scaler : systèmes, délégation et revenus récurrents", content: "Passez de l'artisanat à une structure industrialisée pour pérenniser et accroître votre chiffre d'affaires." }
     ]
   }
-],
+];
 
 export default function DashboardPage() {
   const [loading, setLoading] = useState(true);
