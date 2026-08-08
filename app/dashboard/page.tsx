@@ -213,13 +213,6 @@ Automatiser ne signifie pas perdre le contrôle :
 • Soignez le prompt système : Plus vos instructions d'automatisation sont précises sur le ton, la mise en forme et les contraintes, moins vous aurez de corrections manuelles à effectuer.`,
   resources: [
     {
-      type: 'video',
-      title: "Créer un Pipeline de Contenu Automatisé de A à Z",
-      description: "Une démonstration pratique pour configurer son premier scénario No-Code et connecter l'IA à ses outils de diffusion.",
-      actionText: "Voir la vidéo",
-      actionUrlOrContent: "https://www.youtube.com/watch?v=XxSz67I_mb4"
-    },
-    {
       type: 'text',
       title: "Prompt système pour automatisation de rédaction",
       description: "Le prompt structuré à intégrer dans votre brique IA (Make/Zapier) pour générer du contenu aux normes de votre marque.",
@@ -253,13 +246,6 @@ Automatiser ne signifie pas spammer :
 • Protégez votre réputation de domaine : Échauffez vos boîtes mail (warm-up), limitez le volume d'envois journalier et respectez scrupuleusement les normes RGPD.
 • Maintenez une approche humaine : Le message généré par l'IA doit toujours sembler organique, court, orienté sur la résolution d'une problématique client et non sur un argumentaire commercial lourd.`,
         resources: [
-          {
-            type: 'video',
-            title: "Système de Prospection B2B Automatisé par IA",
-            description: "Une démonstration pratique pour concevoir un flux de prospection automatisé, de l'extraction des leads à la génération de messages personnalisés.",
-            actionText: "Voir la vidéo",
-            actionUrlOrContent: "https://www.youtube.com/watch?v=XxSz67I_mb4"
-          },
           {
             type: 'text',
             title: "Prompt d'hyper-personnalisation de message",
