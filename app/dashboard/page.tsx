@@ -193,27 +193,47 @@ const modulesData: Module[] = [
       },
       {
   title: "Pipelines de contenu automatisés",
-  content: `
-    Dans cette section, nous passons de la simple création de contenu ponctuelle à l'industrialisation grâce aux pipelines automatisés. L'objectif : faire travailler l'IA en arrière-plan pour alimenter vos canaux de diffusion de manière fluide et continue.
+  content: `Dans cette section, nous passons de la simple création de contenu ponctuelle à l'industrialisation grâce aux pipelines automatisés. L'objectif : faire travailler l'IA en arrière-plan pour alimenter vos canaux de diffusion de manière fluide et continue.
 
-    ### 1. Qu'est-ce qu'un pipeline de contenu ?
-    Un pipeline (ou tunnel de traitement) est une chaîne d'actions séquentielles où chaque étape automatise une transformation de l'information :
-    - **L'amont (Trigger / Source) :** Une idée, un lien web, une note vocale ou une ligne dans un tableau de bord (Airtable / Google Sheets).
-    - **Le traitement (LLM / IA) :** Un agent ou un prompt système qui analyse, enrichit, structure et rédige le contenu selon vos critères de marque.
-    - **L'aval (Action / Diffusion) :** L'export automatique vers votre site web, votre plateforme de formation, vos réseaux sociaux ou votre boîte mail.
+1. Qu'est-ce qu'un pipeline de contenu ?
+Un pipeline (ou tunnel de traitement) est une chaîne d'actions séquentielles où chaque étape automatise une transformation de l'information :
+• L'amont (Trigger / Source) : Une idée, un lien web, une note vocale ou une ligne dans un tableau de bord (Airtable / Google Sheets).
+• Le traitement (LLM / IA) : Un agent ou un prompt système qui analyse, enrichit, structure et rédige le contenu selon vos critères de marque.
+• L'aval (Action / Diffusion) : L'export automatique vers votre site web, votre plateforme de formation, vos réseaux sociaux ou votre boîte mail.
 
-    ### 2. Les briques essentielles de l'automatisation
-    Pour mettre en place votre premier pipeline sans écrire une seule ligne de code, vous combinez généralement :
-    - **Un outil d'orchestration No-Code :** Make.com ou Zapier pour faire communiquer les applications entre elles.
-    - **Une base de données ou un CRM :** Airtable ou Google Sheets pour stocker et piloter le statut de vos contenus (Idée, En rédaction, Validé, Publié).
-    - **Une API d'IA :** Les modèles d'OpenAI ou d'Anthropic intégrés directement dans vos scénarios d'automatisation.
+2. Les briques essentielles de l'automatisation
+Pour mettre en place votre premier pipeline sans écrire une seule ligne de code, vous combinez généralement :
+• Un outil d'orchestration No-Code : Make.com ou Zapier pour faire communiquer les applications entre elles.
+• Une base de données ou un CRM : Airtable ou Google Sheets pour stocker et piloter le statut de vos contenus (Idée, En rédaction, Validé, Publié).
+• Une API d'IA : Les modèles d'OpenAI ou d'Anthropic intégrés directement dans vos scénarios d'automatisation.
 
-    ### 3. Bonnes pratiques et garde-fous
-    Automatiser ne signifie pas perdre le contrôle :
-    - **Intégrez toujours une étape de validation humaine (Human-in-the-middle) :** Programmez un système de notification (sur Slack, Discord ou par e-mail) qui vous demande d'approuver le contenu avant sa publication définitive.
-    - **Soignez le prompt système :** Plus vos instructions d'automatisation sont précises sur le ton, la mise en forme (Markdown) et les contraintes, moins vous aurez de corrections manuelles à effectuer.
-  `,
-  pdfResource: "pipeline-contenu-automatise.pdf"
+3. Bonnes pratiques et garde-fous
+Automatiser ne signifie pas perdre le contrôle :
+• Intégrez toujours une étape de validation humaine (Human-in-the-middle) : Programmez un système de notification (sur Slack, Discord ou par e-mail) qui vous demande d'approuver le contenu avant sa publication définitive.
+• Soignez le prompt système : Plus vos instructions d'automatisation sont précises sur le ton, la mise en forme et les contraintes, moins vous aurez de corrections manuelles à effectuer.`,
+  resources: [
+    {
+      type: 'video',
+      title: "Créer un Pipeline de Contenu Automatisé de A à Z",
+      description: "Une démonstration pratique pour configurer son premier scénario No-Code et connecter l'IA à ses outils de diffusion.",
+      actionText: "Voir la vidéo",
+      actionUrlOrContent: "https://www.youtube.com/watch?v=XxSz67I_mb4"
+    },
+    {
+      type: 'text',
+      title: "Prompt système pour automatisation de rédaction",
+      description: "Le prompt structuré à intégrer dans votre brique IA (Make/Zapier) pour générer du contenu aux normes de votre marque.",
+      actionText: "Copier le prompt",
+      actionUrlOrContent: "Agis en tant qu'expert en automatisation de contenu et en rédaction web. À partir des notes brutes ou de l'idée suivante : [Insérer la variable de la Source], réédite et structure un article complet en Markdown. Respecte scrupuleusement les consignes suivantes : un titre accrocheur, des sous-titres clairs, un ton professionnel et direct, et une conclusion engageante."
+    },
+    {
+      type: 'file',
+      title: "Le Guide des Pipelines de Contenu (PDF)",
+      description: "Le support de cours complet détaillant l'architecture technique, les outils no-code et la checklist d'implémentation.",
+      actionText: "Télécharger",
+      actionUrlOrContent: "/fichiers/pipeline-contenu-automatise.pdf"
+    }
+  ]
 },
   {
     id: '03',
