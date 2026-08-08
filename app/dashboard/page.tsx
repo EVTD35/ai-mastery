@@ -245,7 +245,7 @@ Automatiser ne signifie pas perdre le contrôle :
       { title: "Scaler : systèmes, délégation et revenus récurrents", content: "Passez de l'artisanat à une structure industrialisée pour pérenniser et accroître votre chiffre d'affaires." }
     ]
   }
-];
+],
 
 export default function DashboardPage() {
   const [loading, setLoading] = useState(true);
