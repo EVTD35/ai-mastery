@@ -193,7 +193,6 @@ const modulesData: Module[] = [
       },
       {
   title: "Pipelines de contenu automatisés",
-  slug: "pipelines-contenu-automatises",
   content: `
     Dans cette section, nous passons de la simple création de contenu ponctuelle à l'industrialisation grâce aux pipelines automatisés. L'objectif : faire travailler l'IA en arrière-plan pour alimenter vos canaux de diffusion de manière fluide et continue.
 
@@ -215,10 +214,7 @@ const modulesData: Module[] = [
     - **Soignez le prompt système :** Plus vos instructions d'automatisation sont précises sur le ton, la mise en forme (Markdown) et les contraintes, moins vous aurez de corrections manuelles à effectuer.
   `,
   pdfResource: "pipeline-contenu-automatise.pdf"
-},
-      { title: 'Automatiser la prospection de bout en bout', content: "Créez un système autonome pour identifier des clients, personnaliser les messages et relancer automatiquement." }
-    ]
-  },
+}
   {
     id: '03',
     title: 'Monétisation & Scale',
