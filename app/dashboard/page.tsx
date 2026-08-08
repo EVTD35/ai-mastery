@@ -236,7 +236,48 @@ Automatiser ne signifie pas perdre le contrôle :
         ]
       } // <--- Fermeture de l'objet de la leçon "Pipelines de contenu automatisés" (PAS de virgule ici si c'est la dernière leçon)
     ] // <--- Fermeture du tableau lessons: [ ... ] du Pilier 02
-  },    
+  },
+  {
+  title: "Automatiser la prospection de bout en bout",
+  content: `Dans cette section, nous passons de la prospection artisanale et chronophage à un système automatisé, chirurgical et hautement personnalisé grâce à l'intelligence artificielle.
+
+1. La philosophie de la prospection augmentée
+L'ère du message de prospection copier-coller envoyé à des milliers de personnes est révolue. Les boîtes de réception sont saturées et les filtres anti-spam rejettent le contenu générique. L'approche moderne repose sur l'hyper-personnalisation à grande échelle : l'IA analyse le profil ou l'actualité de votre cible pour rédiger un message unique et contextuel, tout en automatisant la distribution en arrière-plan.
+
+2. L'architecture de votre infrastructure de prospection
+Pour mettre en place un pipeline de prospection de bout en bout sans intervention manuelle constante, vous articulez trois briques majeures :
+• Le Sourcing & l'Enrichissement : Extraction ciblée de profils qualifiés (via des outils de scraping propres, LinkedIn Sales Navigator ou des bases de données B2B).
+• La Qualification & la Personnalisation par IA : Injection des données du prospect dans un LLM piloté par un prompt système strict pour générer une accroche percutante et sur-mesure.
+• L'Orchestration et l'Envoi : Connexion via un outil No-Code (Make ou Zapier) vers votre canal de diffusion (e-mail, LinkedIn) avec des conditions de relance automatique.
+
+3. Règles d'or : Délivrabilité et Conformité
+Automatiser ne signifie pas spammer :
+• Protégez votre réputation de domaine : Échauffez vos boîtes mail (warm-up), limitez le volume d'envois journalier et respectez scrupuleusement les normes RGPD.
+• Maintenez une approche humaine : Le message généré par l'IA doit toujours sembler organique, court, orienté sur la résolution d'une problématique client et non sur un argumentaire commercial lourd.`,
+  resources: [
+    {
+      type: 'video',
+      title: "Système de Prospection B2B Automatisé par IA",
+      description: "Une démonstration pratique pour concevoir un flux de prospection automatisé, de l'extraction des leads à la génération de messages personnalisés.",
+      actionText: "Voir la vidéo",
+      actionUrlOrContent: "https://www.youtube.com/watch?v=XxSz67I_mb4"
+    },
+    {
+      type: 'text',
+      title: "Prompt d'hyper-personnalisation de message",
+      description: "Le prompt expert à intégrer dans votre workflow d'automatisation pour rédiger des messages de prospection ultra-courts et à fort taux de conversion.",
+      actionText: "Copier le prompt",
+      actionUrlOrContent: "Agis en tant que Growth Marketer senior. À partir du profil LinkedIn ou de la description d'entreprise suivante : [Insérer les données du prospect], rédige un premier message de prospection ultra-court (maximum 3 phrases). Le message doit identifier une problématique évidente liée à leur secteur, proposer une solution directe sans jargon, et se terminer par une question ouverte à faible friction. Pas de formules de politesse lourdes, ton direct et professionnel."
+    },
+    {
+      type: 'file',
+      title: "Le Guide de la Prospection Automatisée (PDF)",
+      description: "Le support de cours complet détaillant l'architecture technique, les outils et la checklist de délivrabilité pour vos campagnes.",
+      actionText: "Télécharger",
+      actionUrlOrContent: "/fichiers/automatiser-prospection.pdf"
+    }
+  ]
+},    
   {
     id: '03',
     title: 'Monétisation & Scale',
