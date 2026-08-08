@@ -191,7 +191,31 @@ const modulesData: Module[] = [
           }
         ]
       },
-      { title: 'Pipelines de contenu automatisés', content: "Mettez en place des flux de travail automatisés pour produire et diffuser du contenu à grande échelle." },
+      {
+  title: "Pipelines de contenu automatisés",
+  slug: "pipelines-contenu-automatises",
+  content: `
+    Dans cette section, nous passons de la simple création de contenu ponctuelle à l'industrialisation grâce aux pipelines automatisés. L'objectif : faire travailler l'IA en arrière-plan pour alimenter vos canaux de diffusion de manière fluide et continue.
+
+    ### 1. Qu'est-ce qu'un pipeline de contenu ?
+    Un pipeline (ou tunnel de traitement) est une chaîne d'actions séquentielles où chaque étape automatise une transformation de l'information :
+    - **L'amont (Trigger / Source) :** Une idée, un lien web, une note vocale ou une ligne dans un tableau de bord (Airtable / Google Sheets).
+    - **Le traitement (LLM / IA) :** Un agent ou un prompt système qui analyse, enrichit, structure et rédige le contenu selon vos critères de marque.
+    - **L'aval (Action / Diffusion) :** L'export automatique vers votre site web, votre plateforme de formation, vos réseaux sociaux ou votre boîte mail.
+
+    ### 2. Les briques essentielles de l'automatisation
+    Pour mettre en place votre premier pipeline sans écrire une seule ligne de code, vous combinez généralement :
+    - **Un outil d'orchestration No-Code :** Make.com ou Zapier pour faire communiquer les applications entre elles.
+    - **Une base de données ou un CRM :** Airtable ou Google Sheets pour stocker et piloter le statut de vos contenus (Idée, En rédaction, Validé, Publié).
+    - **Une API d'IA :** Les modèles d'OpenAI ou d'Anthropic intégrés directement dans vos scénarios d'automatisation.
+
+    ### 3. Bonnes pratiques et garde-fous
+    Automatiser ne signifie pas perdre le contrôle :
+    - **Intégrez toujours une étape de validation humaine (Human-in-the-middle) :** Programmez un système de notification (sur Slack, Discord ou par e-mail) qui vous demande d'approuver le contenu avant sa publication définitive.
+    - **Soignez le prompt système :** Plus vos instructions d'automatisation sont précises sur le ton, la mise en forme (Markdown) et les contraintes, moins vous aurez de corrections manuelles à effectuer.
+  `,
+  pdfResource: "pipeline-contenu-automatise.pdf"
+},
       { title: 'Automatiser la prospection de bout en bout', content: "Créez un système autonome pour identifier des clients, personnaliser les messages et relancer automatiquement." }
     ]
   },
