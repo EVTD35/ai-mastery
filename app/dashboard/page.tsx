@@ -308,7 +308,47 @@ L'information brute est aujourd'hui gratuite et accessible partout. Vos clients 
     }
   ]
 },
-      { title: 'Fixer ses prix et signer ses premiers clients', content: "Les stratégies de tarification et les techniques de closing adaptées aux services technologiques." },
+      {
+  title: "Fixer ses prix et signer ses premiers clients",
+  content: `Dans cette section, nous abordons la concrétisation commerciale : comment fixer des tarifs en phase avec votre réelle valeur et signer vos premiers clients high-ticket sans brader vos prestations.
+
+1. La psychologie du prix et l'erreur du débutant
+L'une des plus grandes erreurs du freelance est de pratiquer des tarifs trop bas par syndrome de l'imposteur. En B2B, un prix bas envoie un signal négatif : il suggère un service de mauvaise qualité, amateur ou peu fiable. Vos tarifs doivent refléter la transformation business et le retour sur investissement (ROI) que vous apportez à votre client, et non le nombre d'heures que vous y passez.
+
+2. Comment structurer et présenter ses prix
+Pour maximiser vos chances de conversion :
+• Utilisez l'effet d'ancrage : Présentez toujours deux ou trois options tarifaires (ex: une offre de base et une offre premium). L'offre intermédiaire ou premium devient alors le choix logique et naturel du client.
+• Vendez des forfaits ou des abonnements récurrents : Préférez un modèle de prestation globale ou de maintenance mensuelle plutôt qu'une facturation à l'heure précaire.
+
+3. Le framework de closing des premiers clients
+Signer un client ne relève pas de la chance, mais d'une méthode rigoureuse en quatre étapes :
+• L'appel de diagnostic : Ne commencez jamais par pitcher vos services. Posez des questions ciblées pour comprendre leurs points de blocage et le coût financier de leur problème actuel.
+• La proposition orientée ROI : Votre offre doit être présentée comme la solution évidente et rentable pour résoudre ce problème.
+• Le traitement des objections : Face à l'objection "c'est trop cher", rappelez le coût de l'inaction. Un investissement n'est cher que si le retour sur investissement est inférieur.`,
+  resources: [
+    {
+      type: 'video',
+      title: "Comment négocier et closer ses premiers clients High-Ticket",
+      description: "Une masterclass pratique sur la posture commerciale, la structure de l'appel de vente et la gestion des objections.",
+      actionText: "Voir la vidéo",
+      actionUrlOrContent: "https://www.youtube.com/watch?v=YBrCxppCrVQ"
+    },
+    {
+      type: 'text',
+      title: "Script d'appel de vente et de closing",
+      description: "Le canevas étape par étape pour structurer vos entretiens clients, identifier leurs besoins profonds et closer sans forcer.",
+      actionText: "Copier le prompt",
+      actionUrlOrContent: "Agis en tant que coach en vente B2B et expert en closing. Rédige un script d'appel de découverte et de vente en 4 étapes pour un freelance vendant des prestations d'automatisation et de services dopés à l'IA. Le script doit inclure : 1) La mise en confiance et le cadrage de l'appel, 2) Les questions d'investigation pour creuser les douleurs du prospect, 3) La transition fluide vers la présentation de l'offre, et 4) Les réponses précises aux deux objections classiques ('c'est trop cher' et 'je dois réfléchir')."
+    },
+    {
+      type: 'file',
+      title: "Le Guide du Pricing & du Closing (PDF)",
+      description: "Le support de cours complet détaillant la stratégie de fixation des prix, l'effet d'ancrage et les scripts de négociation.",
+      actionText: "Télécharger",
+      actionUrlOrContent: "/fichiers/fixer-prix-signer-clients.pdf"
+    }
+  ]
+},
       { title: 'Construire un micro-SaaS automatisé', content: "Lancez un mini-logiciel payant en ligne capable de tourner en arrière-plan avec une intervention humaine minimale." },
       { title: "Scaler : systèmes, délégation et revenus récurrents", content: "Passez de l'artisanat à une structure industrialisée pour pérenniser et accroître votre chiffre d'affaires." }
     ]
