@@ -349,7 +349,47 @@ Signer un client ne relève pas de la chance, mais d'une méthode rigoureuse en 
     }
   ]
 },
-      { title: 'Construire un micro-SaaS automatisé', content: "Lancez un mini-logiciel payant en ligne capable de tourner en arrière-plan avec une intervention humaine minimale." },
+      {
+        title: 'Construire un micro-SaaS automatisé',
+        content: "Lancez un mini-logiciel payant en ligne capable de tourner en arrière-plan avec une intervention humaine minimale.\n\n1. Le concept du micro-SaaS dopé à l'IA\nOubliez les applications complexes nécessitant des levées de fonds ou des équipes de dix développeurs. Un micro-SaaS moderne résout une seule douleur spécifique pour une niche précise, en automatisant la valeur grâce à l'intelligence artificielle (API LLM) et en encaissant les paiements en récurrent via Stripe.\n\n2. L'architecture technique sans friction\n• Le Front-end & l'Hébergement : Une application Next.js hébergée en un clic sur Vercel.\n• La Base de données & l'Auth : Supabase pour gérer les profils utilisateurs et sécuriser les accès.\n• Le Moteur IA : Connexion directe avec les API d'OpenAI ou d'Anthropic pour générer les résultats uniques vendus par votre logiciel.\n\n3. Du prototype au lancement commercial\n• Étape 1 : Valider la friction et prototyper l'interface.\n• Étape 2 : Connecter la brique de paiement Stripe Checkout.\n• Étape 3 : Automatiser la livraison du service dès validation du webhook.\n• Étape 4 : Distribuer le micro-SaaS via du build-in-public et des canaux ciblés.",
+        resources: [
+          {
+            type: 'video',
+            title: "Masterclass : Architecture & Build de micro-SaaS",
+            description: "Première vidéo de référence pour concevoir l'ossature technique de votre application.",
+            actionText: "Voir la vidéo 1",
+            actionUrlOrContent: "https://www.youtube.com/watch?v=iyHuBE6nWOM"
+          },
+          {
+            type: 'video',
+            title: "Stratégie de lancement et automatisation",
+            description: "Seconde vidéo pour acquérir vos premiers utilisateurs et automatiser l'acquisition.",
+            actionText: "Voir la vidéo 2",
+            actionUrlOrContent: "https://www.youtube.com/watch?v=G_f1Y4L8VGg"
+          },
+          {
+            type: 'tool',
+            title: "Playground / Sandbox Live (Template SaaS)",
+            description: "Accède à une maquette interactive pour tester la logique de ton micro-SaaS.",
+            actionText: "Tester la Sandbox",
+            actionUrlOrContent: "https://github.com"
+          },
+          {
+            type: 'text',
+            title: "Prompt d'architecture de micro-SaaS",
+            description: "Le prompt pour demander à l'IA de concevoir le schéma technique complet de ton logiciel.",
+            actionText: "Copier le prompt",
+            actionUrlOrContent: "Agis en tant qu'architecte logiciel et product engineer senior. Je souhaite lancer un micro-SaaS qui permet de [Décris ton idée de logiciel]. Rédige le plan technique complet comprenant : 1) Les tables nécessaires dans Supabase, 2) La logique de la route API Next.js qui appelle l'IA, 3) Le flux d'encaissement Stripe, et 4) Les étapes pour déployer le tout sur Vercel."
+          },
+          {
+            type: 'file',
+            title: "Le Guide du Micro-SaaS Automatisé (PDF)",
+            description: "Le livre blanc complet respectant la charte graphique, détaillant l'architecture et la stratégie.",
+            actionText: "Télécharger",
+            actionUrlOrContent: "/fichiers/micro-saas-automatise.pdf"
+          }
+        ]
+      },
       { title: "Scaler : systèmes, délégation et revenus récurrents", content: "Passez de l'artisanat à une structure industrialisée pour pérenniser et accroître votre chiffre d'affaires." }
     ]
   }
