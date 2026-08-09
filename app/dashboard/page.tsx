@@ -6,11 +6,11 @@ import { supabase } from '@/lib/libsupabaseClient';
 
 // Interface pour typer proprement les ressources de chaque leçon
 export interface ResourceItem {
-  type: 'file' | 'video' | 'text';
+  type: 'file' | 'video' | 'text' | 'tool';
   title: string;
   description: string;
   actionText: string;
-  actionUrlOrContent: string; // URL pour un PDF/Vidéo, ou le texte brut pour un prompt
+  actionUrlOrContent: string;
 }
 
 export interface Lesson {
