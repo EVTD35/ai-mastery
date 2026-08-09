@@ -778,6 +778,17 @@ export default function DashboardPage() {
                       {copiedIndex === idx ? 'Copié !' : res.actionText}
                     </button>
                   )}
+                  {/* Bouton d'action pour le type 'tool' */}
+{res.type === 'tool' && (
+  <a
+    href={res.actionUrlOrContent}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="px-3 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-xs font-medium text-white transition text-center whitespace-nowrap shadow-lg"
+  >
+    {res.actionText}
+  </a>
+)}
                 </div>
               ))}
             </div>
