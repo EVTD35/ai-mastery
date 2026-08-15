@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { supabase } from '@/lib/libsupabaseClient';
+import SmoothScroll from '../SmoothScroll';
 
 // Interface pour typer proprement les ressources de chaque leçon
 export interface ResourceItem {
@@ -192,8 +193,8 @@ const modulesData: Module[] = [
         ]
       },
       {
-  title: "Pipelines de contenu automatisés",
-  content: `Dans cette section, nous passons de la simple création de contenu ponctuelle à l'industrialisation grâce aux pipelines automatisés. L'objectif : faire travailler l'IA en arrière-plan pour alimenter vos canaux de diffusion de manière fluide et continue.
+        title: "Pipelines de contenu automatisés",
+        content: `Dans cette section, nous passons de la simple création de contenu ponctuelle à l'industrialisation grâce aux pipelines automatisés. L'objectif : faire travailler l'IA en arrière-plan pour alimenter vos canaux de diffusion de manière fluide et continue.
 
 1. Qu'est-ce qu'un pipeline de contenu ?
 Un pipeline (ou tunnel de traitement) est une chaîne d'actions séquentielles où chaque étape automatise une transformation de l'information :
@@ -211,24 +212,24 @@ Pour mettre en place votre premier pipeline sans écrire une seule ligne de code
 Automatiser ne signifie pas perdre le contrôle :
 • Intégrez toujours une étape de validation humaine (Human-in-the-middle) : Programmez un système de notification (sur Slack, Discord ou par e-mail) qui vous demande d'approuver le contenu avant sa publication définitive.
 • Soignez le prompt système : Plus vos instructions d'automatisation sont précises sur le ton, la mise en forme et les contraintes, moins vous aurez de corrections manuelles à effectuer.`,
-  resources: [
-    {
-      type: 'text',
-      title: "Prompt système pour automatisation de rédaction",
-      description: "Le prompt structuré à intégrer dans votre brique IA (Make/Zapier) pour générer du contenu aux normes de votre marque.",
-      actionText: "Copier le prompt",
-      actionUrlOrContent: "Agis en tant qu'expert en automatisation de contenu et en rédaction web. À partir des notes brutes ou de l'idée suivante : [Insérer la variable de la Source], réédite et structure un article complet en Markdown. Respecte scrupuleusement les consignes suivantes : un titre accrocheur, des sous-titres clairs, un ton professionnel et direct, et une conclusion engageante."
-    },
-    {
-      type: 'file',
-      title: "Le Guide des Pipelines de Contenu (PDF)",
-      description: "Le support de cours complet détaillant l'architecture technique, les outils no-code et la checklist d'implémentation.",
-      actionText: "Télécharger",
-      actionUrlOrContent: "/fichiers/pipeline-contenu-automatise.pdf"
-      }
+        resources: [
+          {
+            type: 'text',
+            title: "Prompt système pour automatisation de rédaction",
+            description: "Le prompt structuré à intégrer dans votre brique IA (Make/Zapier) pour générer du contenu aux normes de votre marque.",
+            actionText: "Copier le prompt",
+            actionUrlOrContent: "Agis en tant qu'expert en automatisation de contenu et en rédaction web. À partir des notes brutes ou de l'idée suivante : [Insérer la variable de la Source], réédite et structure un article complet en Markdown. Respecte scrupuleusement les consignes suivantes : un titre accrocheur, des sous-titres clairs, un ton professionnel et direct, et une conclusion engageante."
+          },
+          {
+            type: 'file',
+            title: "Le Guide des Pipelines de Contenu (PDF)",
+            description: "Le support de cours complet détaillant l'architecture technique, les outils no-code et la checklist d'implémentation.",
+            actionText: "Télécharger",
+            actionUrlOrContent: "/fichiers/pipeline-contenu-automatise.pdf"
+          }
         ]
       },
-  {
+      {
         title: "Automatiser la prospection de bout en bout",
         content: `Dans cette section, nous passons de la prospection artisanale et chronophage à un système automatisé, chirurgical et hautement personnalisé grâce à l'intelligence artificielle.
 
@@ -269,8 +270,8 @@ Automatiser ne signifie pas spammer :
     title: 'Monétisation & Scale',
     lessons: [
       {
-  title: "Packager une offre freelance rentable",
-  content: `Dans cette section, nous quittons le piège du taux journalier moyen (TJM) pour structurer des offres packagées basées sur une architecture de confiance. L'objectif : vendre un résultat progressif et un accompagnement à haute valeur perçue plutôt que du temps de travail.
+        title: "Packager une offre freelance rentable",
+        content: `Dans cette section, nous quittons le piège du taux journalier moyen (TJM) pour structurer des offres packagées basées sur une architecture de confiance. L'objectif : vendre un résultat progressif et un accompagnement à haute valeur perçue plutôt que du temps de travail.
 
 1. La fin du TJM et des promesses démesurées
 Face à un marché devenu plus sceptique, les promesses agressives et irréalistes ne fonctionnent plus. Le positionnement d'élite repose sur l'authenticité, la transparence et le "Value-Based Pricing". Le client n'achète pas vos heures, il achète un chemin crédible et un accompagnement sur-mesure.
@@ -284,33 +285,33 @@ Pour structurer votre offre haut de gamme :
 
 3. Vendre l'implémentation et l'accompagnement
 L'information brute est aujourd'hui gratuite et accessible partout. Vos clients ne payent pas pour de la théorie, mais pour l'implémentation, la responsabilisation, le sur-mesure et l'accompagnement personnalisé que vous leur apportez au quotidien.`,
-  resources: [
-    {
-      type: 'video',
-      title: "Comment vendre une offre High Ticket sans lancement",
-      description: "Une masterclass stratégique détaillée sur l'architecture d'une offre de confiance et la psychologie de vente d'expertise.",
-      actionText: "Voir la vidéo",
-      actionUrlOrContent: "https://www.youtube.com/watch?v=RB4DVHcyaUM"
-    },
-    {
-      type: 'text',
-      title: "Prompt d'aide à la création d'offre packagée",
-      description: "Le prompt stratégique pour transformer vos compétences brutes en une offre freelance haut de gamme structurée et prête à vendre.",
-      actionText: "Copier le prompt",
-      actionUrlOrContent: "Agis en tant que directeur commercial et expert en pricing B2B. Je propose actuellement les services suivants en freelance : [Décris tes compétences ou prestations]. Aide-moi à packager ces compétences en une offre globale haut de gamme orientée sur le résultat (et non sur le temps passé). Propose-moi un nom d'offre percutant, la liste exacte des livrables inclus, un argumentaire commercial axé sur le retour sur investissement (ROI) pour le client, et une structure de prix en deux paliers."
-    },
-    {
-      type: 'file',
-      title: "Le Guide du Packaging d'Offre Rentable (PDF)",
-      description: "Le support de cours complet détaillant l'architecture de confiance, le pricing par la valeur et la grille tarifaire.",
-      actionText: "Télécharger",
-      actionUrlOrContent: "/fichiers/packager-offre-freelance.pdf"
-    }
-  ]
-},
+        resources: [
+          {
+            type: 'video',
+            title: "Comment vendre une offre High Ticket sans lancement",
+            description: "Une masterclass stratégique détaillée sur l'architecture d'une offre de confiance et la psychologie de vente d'expertise.",
+            actionText: "Voir la vidéo",
+            actionUrlOrContent: "https://www.youtube.com/watch?v=RB4DVHcyaUM"
+          },
+          {
+            type: 'text',
+            title: "Prompt d'aide à la création d'offre packagée",
+            description: "Le prompt stratégique pour transformer vos compétences brutes en une offre freelance haut de gamme structurée et prête à vendre.",
+            actionText: "Copier le prompt",
+            actionUrlOrContent: "Agis en tant que directeur commercial et expert en pricing B2B. Je propose actuellement les services suivants en freelance : [Décris tes compétences ou prestations]. Aide-moi à packager ces compétences en une offre globale haut de gamme orientée sur le résultat (et non sur le temps passé). Propose-moi un nom d'offre percutant, la liste exacte des livrables inclus, un argumentaire commercial axé sur le retour sur investissement (ROI) pour le client, et une structure de prix en deux paliers."
+          },
+          {
+            type: 'file',
+            title: "Le Guide du Packaging d'Offre Rentable (PDF)",
+            description: "Le support de cours complet détaillant l'architecture de confiance, le pricing par la valeur et la grille tarifaire.",
+            actionText: "Télécharger",
+            actionUrlOrContent: "/fichiers/packager-offre-freelance.pdf"
+          }
+        ]
+      },
       {
-  title: "Fixer ses prix et signer ses premiers clients",
-  content: `Dans cette section, nous abordons la concrétisation commerciale : comment fixer des tarifs en phase avec votre réelle valeur et signer vos premiers clients high-ticket sans brader vos prestations.
+        title: "Fixer ses prix et signer ses premiers clients",
+        content: `Dans cette section, nous abordons la concrétisation commerciale : comment fixer des tarifs en phase avec votre réelle valeur et signer vos premiers clients high-ticket sans brader vos prestations.
 
 1. La psychologie du prix et l'erreur du débutant
 L'une des plus grandes erreurs du freelance est de pratiquer des tarifs trop bas par syndrome de l'imposteur. En B2B, un prix bas envoie un signal négatif : il suggère un service de mauvaise qualité, amateur ou peu fiable. Vos tarifs doivent refléter la transformation business et le retour sur investissement (ROI) que vous apportez à votre client, et non le nombre d'heures que vous y passez.
@@ -325,30 +326,30 @@ Signer un client ne relève pas de la chance, mais d'une méthode rigoureuse en 
 • L'appel de diagnostic : Ne commencez jamais par pitcher vos services. Posez des questions ciblées pour comprendre leurs points de blocage et le coût financier de leur problème actuel.
 • La proposition orientée ROI : Votre offre doit être présentée comme la solution évidente et rentable pour résoudre ce problème.
 • Le traitement des objections : Face à l'objection "c'est trop cher", rappelez le coût de l'inaction. Un investissement n'est cher que si le retour sur investissement est inférieur.`,
-  resources: [
-    {
-      type: 'video',
-      title: "Comment négocier et closer ses premiers clients High-Ticket",
-      description: "Une masterclass pratique sur la posture commerciale, la structure de l'appel de vente et la gestion des objections.",
-      actionText: "Voir la vidéo",
-      actionUrlOrContent: "https://www.youtube.com/watch?v=YBrCxppCrVQ"
-    },
-    {
-      type: 'text',
-      title: "Script d'appel de vente et de closing",
-      description: "Le canevas étape par étape pour structurer vos entretiens clients, identifier leurs besoins profonds et closer sans forcer.",
-      actionText: "Copier le prompt",
-      actionUrlOrContent: "Agis en tant que coach en vente B2B et expert en closing. Rédige un script d'appel de découverte et de vente en 4 étapes pour un freelance vendant des prestations d'automatisation et de services dopés à l'IA. Le script doit inclure : 1) La mise en confiance et le cadrage de l'appel, 2) Les questions d'investigation pour creuser les douleurs du prospect, 3) La transition fluide vers la présentation de l'offre, et 4) Les réponses précises aux deux objections classiques ('c'est trop cher' et 'je dois réfléchir')."
-    },
-    {
-      type: 'file',
-      title: "Le Guide du Pricing & du Closing (PDF)",
-      description: "Le support de cours complet détaillant la stratégie de fixation des prix, l'effet d'ancrage et les scripts de négociation.",
-      actionText: "Télécharger",
-      actionUrlOrContent: "/fichiers/fixer-prix-signer-clients.pdf"
-    }
-  ]
-},
+        resources: [
+          {
+            type: 'video',
+            title: "Comment négocier et closer ses premiers clients High-Ticket",
+            description: "Une masterclass pratique sur la posture commerciale, la structure de l'appel de vente et la gestion des objections.",
+            actionText: "Voir la vidéo",
+            actionUrlOrContent: "https://www.youtube.com/watch?v=YBrCxppCrVQ"
+          },
+          {
+            type: 'text',
+            title: "Script d'appel de vente et de closing",
+            description: "Le canevas étape par étape pour structurer vos entretiens clients, identifier leurs besoins profonds et closer sans forcer.",
+            actionText: "Copier le prompt",
+            actionUrlOrContent: "Agis en tant que coach en vente B2B et expert en closing. Rédige un script d'appel de découverte et de vente en 4 étapes pour un freelance vendant des prestations d'automatisation et de services dopés à l'IA. Le script doit inclure : 1) La mise en confiance et le cadrage de l'appel, 2) Les questions d'investigation pour creuser les douleurs du prospect, 3) La transition fluide vers la présentation de l'offre, et 4) Les réponses précises aux deux objections classiques ('c'est trop cher' et 'je dois réfléchir')."
+          },
+          {
+            type: 'file',
+            title: "Le Guide du Pricing & du Closing (PDF)",
+            description: "Le support de cours complet détaillant la stratégie de fixation des prix, l'effet d'ancrage et les scripts de négociation.",
+            actionText: "Télécharger",
+            actionUrlOrContent: "/fichiers/fixer-prix-signer-clients.pdf"
+          }
+        ]
+      },
       {
         title: 'Construire un micro-SaaS automatisé',
         content: "Lancez un mini-logiciel payant en ligne capable de tourner en arrière-plan avec une intervention humaine minimale.\n\n1. Le concept du micro-SaaS dopé à l'IA\nOubliez les applications complexes nécessitant des levées de fonds ou des équipes de dix développeurs. Un micro-SaaS moderne résout une seule douleur spécifique pour une niche précise, en automatisant la valeur grâce à l'intelligence artificielle (API LLM) et en encaissant les paiements en récurrent via Stripe.\n\n2. L'architecture technique sans friction\n• Le Front-end & l'Hébergement : Une application Next.js hébergée en un clic sur Vercel.\n• La Base de données & l'Auth : Supabase pour gérer les profils utilisateurs et sécuriser les accès.\n• Le Moteur IA : Connexion directe avec les API d'OpenAI ou d'Anthropic pour générer les résultats uniques vendus par votre logiciel.\n\n3. Du prototype au lancement commercial\n• Étape 1 : Valider la friction et prototyper l'interface.\n• Étape 2 : Connecter la brique de paiement Stripe Checkout.\n• Étape 3 : Automatiser la livraison du service dès validation du webhook.\n• Étape 4 : Distribuer le micro-SaaS via du build-in-public et des canaux ciblés.",
@@ -569,298 +570,301 @@ export default function DashboardPage() {
   const hasNext = currentModuleIndex < modulesData.length - 1 || currentLessonIndex < activeModule.lessons.length - 1;
 
   return (
-    <div className="min-h-screen bg-[#0b0b0f] text-white font-sans selection:bg-blue-600 selection:text-white pb-16 relative">
-      
-      {/* NAVBAR */}
-      <header className="border-b border-white/10 px-6 py-4 flex items-center justify-between max-w-7xl mx-auto mb-8">
-        <div className="flex items-center space-x-2">
-          <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-          <span className="font-bold text-xl tracking-tight">AI Mastery — Espace Membre</span>
-        </div>
-        <div className="flex items-center space-x-4">
-          <span className="text-xs text-gray-400 hidden sm:inline">{user?.email}</span>
-          <button 
-            onClick={handleLogout}
-            className="text-xs text-gray-300 hover:text-white bg-white/5 border border-white/10 px-3 py-1.5 rounded-xl transition"
-          >
-            Déconnexion
-          </button>
-        </div>
-      </header>
-
-      {/* CONTENU PRINCIPAL */}
-      <main className="max-w-7xl mx-auto px-6">
+    <SmoothScroll>
+      <div className="min-h-screen bg-[#0b0b0f] text-white font-sans selection:bg-blue-600 selection:text-white pb-16 relative">
         
-        {/* EN-TÊTE & PROGRESSION */}
-        <div className="mb-8 bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/10 p-6 rounded-3xl backdrop-blur-md flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <div>
-            <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-1">
-              Bonjour {user?.user_metadata?.full_name || user?.email?.split('@')[0]} , bienvenue dans la Masterclass
-            </h1>
-            <p className="text-xs text-gray-400">3 piliers de formation • Accès complet à vie • Mises à jour incluses</p>
+        {/* NAVBAR */}
+        <header className="border-b border-white/10 px-6 py-4 flex items-center justify-between max-w-7xl mx-auto mb-8">
+          <div className="flex items-center space-x-2">
+            <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+            <span className="font-bold text-xl tracking-tight">AI Mastery — Espace Membre</span>
           </div>
-          
-          <div className="bg-white/5 border border-white/10 p-4 rounded-2xl min-w-[240px]">
-            <div className="flex justify-between items-center text-xs mb-2">
-              <span className="text-gray-300 font-medium">Avancement global</span>
-              <span className="font-mono font-bold text-blue-400">{globalProgressPercent}%</span>
-            </div>
-            <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden">
-              <div 
-                className="bg-blue-500 h-full rounded-full transition-all duration-500" 
-                style={{ width: `${globalProgressPercent}%` }}
-              ></div>
-            </div>
-            <div className="text-[10px] text-gray-400 mt-1.5 text-right">
-              {completedCount} / {totalLessonsCount} leçons terminées
-            </div>
-          </div>
-        </div>
-
-        {/* GRILLE CENTRALE */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          
-          {/* ZONE DE LECTURE */}
-          <div className="lg:col-span-2 bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/10 p-6 md:p-8 rounded-3xl shadow-2xl backdrop-blur-md flex flex-col justify-between min-h-[500px]">
-            <div>
-              <div className="mb-4 pb-4 border-b border-white/10 flex justify-between items-center">
-                <div>
-                  <span className="text-xs font-mono text-blue-400 uppercase tracking-wider block mb-1">
-                    {activeModule.title}
-                  </span>
-                  <h2 className="text-xl md:text-2xl font-bold">{activeLesson.title}</h2>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-xs font-mono bg-white/5 border border-white/10 px-3 py-1 rounded-full text-gray-300 hidden sm:inline">
-                    Leçon {currentLessonIndex + 1} / {activeModule.lessons.length}
-                  </span>
-                  <button
-                    onClick={(e) => toggleLessonComplete(currentModuleIndex, currentLessonIndex, e)}
-                    className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-medium transition border ${
-                      completedLessons[`${currentModuleIndex}-${currentLessonIndex}`]
-                        ? 'bg-emerald-500/20 border-emerald-500/40 text-emerald-300'
-                        : 'bg-white/5 border-white/10 text-gray-400 hover:text-white hover:bg-white/10'
-                    }`}
-                  >
-                    <span>{completedLessons[`${currentModuleIndex}-${currentLessonIndex}`] ? '✓ Lu' : 'Marquer comme lu'}</span>
-                  </button>
-                </div>
-              </div>
-
-              {/* Texte du cours pur */}
-              <div className="text-gray-300 text-sm md:text-base leading-relaxed space-y-4 py-4 whitespace-pre-line">
-                {activeLesson.content}
-              </div>
-
-              {/* BOUTON D'OUVERTURE DE LA MODALE DES RESSOURCES */}
-              {activeLesson.resources && activeLesson.resources.length > 0 && (
-                <div className="mt-8 p-4 rounded-2xl bg-blue-950/20 border border-blue-500/20 flex items-center justify-between gap-4">
-                  <div>
-                    <span className="text-xs font-bold text-blue-400 block mb-0.5">📁 Centre de ressources</span>
-                    <p className="text-xs text-gray-300">Cette leçon contient des documents, vidéos ou templates à exploiter.</p>
-                  </div>
-                  <button
-                    onClick={() => setIsResourceModalOpen(true)}
-                    className="whitespace-nowrap px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-xs font-medium text-white transition shadow-lg flex items-center space-x-1.5 flex-shrink-0"
-                  >
-                    <span>Voir les ressources ({activeLesson.resources.length})</span>
-                  </button>
-                </div>
-              )}
-            </div>
-
-            {/* NAVIGATION */}
-            <div className="pt-8 mt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <button
-                onClick={goToPreviousLesson}
-                disabled={!hasPrevious}
-                className={`px-4 py-2 rounded-xl text-xs font-medium transition flex items-center space-x-1.5 ${
-                  hasPrevious
-                    ? 'bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 hover:text-white'
-                    : 'opacity-40 cursor-not-allowed bg-white/5 border border-white/5 text-gray-600'
-                }`}
-              >
-                <span>← Leçon précédente</span>
-              </button>
-
-              <span className="text-xs text-emerald-400 flex items-center space-x-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-                <span>En cours de lecture</span>
-              </span>
-
-              <button
-                onClick={goToNextLesson}
-                disabled={!hasNext}
-                className={`px-4 py-2 rounded-xl text-xs font-medium transition flex items-center space-x-1.5 ${
-                  hasNext
-                    ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg'
-                    : 'opacity-40 cursor-not-allowed bg-white/5 border border-white/5 text-gray-600'
-                }`}
-              >
-                <span>Leçon suivante →</span>
-              </button>
-            </div>
-          </div>
-
-          {/* LISTE LATÉRALE DES MODULES */}
-          <div className="space-y-4">
-            {modulesData.map((mod, modIdx) => {
-              const modProgress = getModuleProgress(modIdx);
-              return (
-                <div 
-                  key={mod.id} 
-                  className="bg-white/[0.02] border border-white/10 rounded-2xl p-4 transition hover:border-white/20"
-                >
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-xs font-mono text-blue-400 font-bold">Pilier {mod.id}</span>
-                    <span className="text-[10px] font-mono text-gray-400">{modProgress.completed}/{modProgress.total}</span>
-                  </div>
-                  <h4 className="text-sm font-bold mb-2 text-white">{mod.title}</h4>
-                  
-                  <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden mb-3">
-                    <div 
-                      className="bg-blue-500 h-full rounded-full transition-all duration-300"
-                      style={{ width: `${modProgress.percent}%` }}
-                    ></div>
-                  </div>
-                  
-                  <div className="space-y-1">
-                    {mod.lessons.map((lesson, lessonIdx) => {
-                      const isSelected = currentModuleIndex === modIdx && currentLessonIndex === lessonIdx;
-                      const isDone = completedLessons[`${modIdx}-${lessonIdx}`];
-                      return (
-                        <div
-                          key={lessonIdx}
-                          onClick={() => {
-                            setCurrentModuleIndex(modIdx);
-                            setCurrentLessonIndex(lessonIdx);
-                          }}
-                          className={`w-full text-left px-3 py-2.5 rounded-xl text-xs transition flex items-center justify-between cursor-pointer ${
-                            isSelected 
-                              ? 'bg-blue-600/20 border border-blue-500/40 text-white font-medium' 
-                              : 'hover:bg-white/5 text-gray-400 hover:text-gray-200'
-                          }`}
-                        >
-                          <span className="truncate pr-2">{lesson.title}</span>
-                          <button
-                            onClick={(e) => toggleLessonComplete(modIdx, lessonIdx, e)}
-                            className={`w-4 h-4 rounded flex items-center justify-center border transition flex-shrink-0 ${
-                              isDone
-                                ? 'bg-emerald-500 border-emerald-400 text-black'
-                                : 'border-white/20 hover:border-white/40 bg-white/5'
-                            }`}
-                            title="Marquer comme lu"
-                          >
-                            {isDone && <span className="text-[10px] font-bold">✓</span>}
-                          </button>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-        </div>
-
-        <div className="mt-12 text-center">
-          <Link 
-            href="/" 
-            className="inline-flex items-center space-x-2 bg-white/5 hover:bg-white/10 border border-white/10 px-6 py-3 rounded-xl text-xs font-medium text-gray-300 hover:text-white transition shadow-lg"
-          >
-            <span>← Retour à l'accueil</span>
-          </Link>
-        </div>
-
-      </main>
-
-      {/* FENÊTRE MODALE DES RESSOURCES MULTIPLES */}
-      {isResourceModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <div className="bg-[#121218] border border-white/15 rounded-3xl max-w-lg w-full p-6 shadow-2xl relative max-h-[85vh] overflow-y-auto">
-            
+          <div className="flex items-center space-x-4">
+            <span className="text-xs text-gray-400 hidden sm:inline">{user?.email}</span>
             <button 
-              onClick={() => setIsResourceModalOpen(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 w-8 h-8 rounded-full flex items-center justify-center transition"
+              onClick={handleLogout}
+              className="text-xs text-gray-300 hover:text-white bg-white/5 border border-white/10 px-3 py-1.5 rounded-xl transition"
             >
-              ✕
+              Déconnexion
             </button>
+          </div>
+        </header>
 
-            <h3 className="text-lg font-bold mb-1 text-white">Ressources de la leçon</h3>
-            <p className="text-xs text-gray-400 mb-6">Supports associés à : <span className="text-blue-400 font-medium">{activeLesson.title}</span></p>
+        {/* CONTENU PRINCIPAL */}
+        <main className="max-w-7xl mx-auto px-6">
+          
+          {/* EN-TÊTE & PROGRESSION */}
+          <div className="mb-8 bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/10 p-6 rounded-3xl backdrop-blur-md flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-1">
+                Bonjour {user?.user_metadata?.full_name || user?.email?.split('@')[0]} , bienvenue dans la Masterclass
+              </h1>
+              <p className="text-xs text-gray-400">3 piliers de formation • Accès complet à vie • Mises à jour incluses</p>
+            </div>
+            
+            <div className="bg-white/5 border border-white/10 p-4 rounded-2xl min-w-[240px]">
+              <div className="flex justify-between items-center text-xs mb-2">
+                <span className="text-gray-300 font-medium">Avancement global</span>
+                <span className="font-mono font-bold text-blue-400">{globalProgressPercent}%</span>
+              </div>
+              <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+                <div 
+                  className="bg-blue-500 h-full rounded-full transition-all duration-500" 
+                  style={{ width: `${globalProgressPercent}%` }}
+                ></div>
+              </div>
+              <div className="text-[10px] text-gray-400 mt-1.5 text-right">
+                {completedCount} / {totalLessonsCount} leçons terminées
+              </div>
+            </div>
+          </div>
 
-            {/* Liste dynamique des ressources de la leçon */}
-            <div className="space-y-3 mb-6">
-              {activeLesson.resources?.map((res, idx) => (
-                <div key={idx} className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <div className="flex items-start space-x-3">
-                    <span className="text-xl mt-0.5">
-                      {res.type === 'file' ? '📄' : res.type === 'video' ? '🎥' : '💬'}
+          {/* GRILLE CENTRALE */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            
+            {/* ZONE DE LECTURE */}
+            <div className="lg:col-span-2 bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/10 p-6 md:p-8 rounded-3xl shadow-2xl backdrop-blur-md flex flex-col justify-between min-h-[500px]">
+              <div>
+                <div className="mb-4 pb-4 border-b border-white/10 flex justify-between items-center">
+                  <div>
+                    <span className="text-xs font-mono text-blue-400 uppercase tracking-wider block mb-1">
+                      {activeModule.title}
                     </span>
+                    <h2 className="text-xl md:text-2xl font-bold">{activeLesson.title}</h2>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <span className="text-xs font-mono bg-white/5 border border-white/10 px-3 py-1 rounded-full text-gray-300 hidden sm:inline">
+                      Leçon {currentLessonIndex + 1} / {activeModule.lessons.length}
+                    </span>
+                    <button
+                      onClick={(e) => toggleLessonComplete(currentModuleIndex, currentLessonIndex, e)}
+                      className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-medium transition border ${
+                        completedLessons[`${currentModuleIndex}-${currentLessonIndex}`]
+                          ? 'bg-emerald-500/20 border-emerald-500/40 text-emerald-300'
+                          : 'bg-white/5 border-white/10 text-gray-400 hover:text-white hover:bg-white/10'
+                      }`}
+                    >
+                      <span>{completedLessons[`${currentModuleIndex}-${currentLessonIndex}`] ? '✓ Lu' : 'Marquer comme lu'}</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Texte du cours pur */}
+                <div className="text-gray-300 text-sm md:text-base leading-relaxed space-y-4 py-4 whitespace-pre-line">
+                  {activeLesson.content}
+                </div>
+
+                {/* BOUTON D'OUVERTURE DE LA MODALE DES RESSOURCES */}
+                {activeLesson.resources && activeLesson.resources.length > 0 && (
+                  <div className="mt-8 p-4 rounded-2xl bg-blue-950/20 border border-blue-500/20 flex items-center justify-between gap-4">
                     <div>
-                      <h5 className="text-xs font-bold text-white mb-0.5">{res.title}</h5>
-                      <p className="text-[11px] text-gray-400 leading-relaxed">{res.description}</p>
+                      <span className="text-xs font-bold text-blue-400 block mb-0.5">📁 Centre de ressources</span>
+                      <p className="text-xs text-gray-300">Cette leçon contient des documents, vidéos ou templates à exploiter.</p>
+                    </div>
+                    <button
+                      onClick={() => setIsResourceModalOpen(true)}
+                      className="whitespace-nowrap px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-xs font-medium text-white transition shadow-lg flex items-center space-x-1.5 flex-shrink-0"
+                    >
+                      <span>Voir les ressources ({activeLesson.resources.length})</span>
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {/* NAVIGATION */}
+              <div className="pt-8 mt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <button
+                  onClick={goToPreviousLesson}
+                  disabled={!hasPrevious}
+                  className={`px-4 py-2 rounded-xl text-xs font-medium transition flex items-center space-x-1.5 ${
+                    hasPrevious
+                      ? 'bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 hover:text-white'
+                      : 'opacity-40 cursor-not-allowed bg-white/5 border border-white/5 text-gray-600'
+                  }`}
+                >
+                  <span>← Leçon précédente</span>
+                </button>
+
+                <span className="text-xs text-emerald-400 flex items-center space-x-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                  <span>En cours de lecture</span>
+                </span>
+
+                <button
+                  onClick={goToNextLesson}
+                  disabled={!hasNext}
+                  className={`px-4 py-2 rounded-xl text-xs font-medium transition flex items-center space-x-1.5 ${
+                    hasNext
+                      ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg'
+                      : 'opacity-40 cursor-not-allowed bg-white/5 border border-white/5 text-gray-600'
+                  }`}
+                >
+                  <span>Leçon suivante →</span>
+                </button>
+              </div>
+            </div>
+
+            {/* LISTE LATÉRALE DES MODULES */}
+            <div className="space-y-4">
+              {modulesData.map((mod, modIdx) => {
+                const modProgress = getModuleProgress(modIdx);
+                return (
+                  <div 
+                    key={mod.id} 
+                    className="bg-white/[0.02] border border-white/10 rounded-2xl p-4 transition hover:border-white/20"
+                  >
+                    <div className="flex justify-between items-center mb-1">
+                      <span className="text-xs font-mono text-blue-400 font-bold">Pilier {mod.id}</span>
+                      <span className="text-[10px] font-mono text-gray-400">{modProgress.completed}/{modProgress.total}</span>
+                    </div>
+                    <h4 className="text-sm font-bold mb-2 text-white">{mod.title}</h4>
+                    
+                    <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden mb-3">
+                      <div 
+                        className="bg-blue-500 h-full rounded-full transition-all duration-300"
+                        style={{ width: `${modProgress.percent}%` }}
+                      ></div>
+                    </div>
+                    
+                    <div className="space-y-1">
+                      {mod.lessons.map((lesson, lessonIdx) => {
+                        const isSelected = currentModuleIndex === modIdx && currentLessonIndex === lessonIdx;
+                        const isDone = completedLessons[`${modIdx}-${lessonIdx}`];
+                        return (
+                          <div
+                            key={lessonIdx}
+                            onClick={() => {
+                              setCurrentModuleIndex(modIdx);
+                              setCurrentLessonIndex(lessonIdx);
+                            }}
+                            className={`w-full text-left px-3 py-2.5 rounded-xl text-xs transition flex items-center justify-between cursor-pointer ${
+                              isSelected 
+                                ? 'bg-blue-600/20 border border-blue-500/40 text-white font-medium' 
+                                : 'hover:bg-white/5 text-gray-400 hover:text-gray-200'
+                            }`}
+                          >
+                            <span className="truncate pr-2">{lesson.title}</span>
+                            <button
+                              onClick={(e) => toggleLessonComplete(modIdx, lessonIdx, e)}
+                              className={`w-4 h-4 rounded flex items-center justify-center border transition flex-shrink-0 ${
+                                isDone
+                                  ? 'bg-emerald-500 border-emerald-400 text-black'
+                                  : 'border-white/20 hover:border-white/40 bg-white/5'
+                              }`}
+                              title="Marquer comme lu"
+                            >
+                              {isDone && <span className="text-[10px] font-bold">✓</span>}
+                            </button>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
-
-                  {/* Bouton d'action selon le type */}
-                  {res.type === 'file' && (
-                    <a 
-                      href={res.actionUrlOrContent} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="px-3 py-2 rounded-xl bg-blue-600/30 hover:bg-blue-600/50 border border-blue-500/40 text-xs font-medium text-blue-200 transition text-center whitespace-nowrap"
-                    >
-                      {res.actionText}
-                    </a>
-                  )}
-
-                  {res.type === 'video' && (
-                    <a 
-                      href={res.actionUrlOrContent} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="px-3 py-2 rounded-xl bg-red-600/30 hover:bg-red-600/50 border border-red-500/40 text-xs font-medium text-red-200 transition text-center whitespace-nowrap"
-                    >
-                      {res.actionText}
-                    </a>
-                  )}
-
-                  {res.type === 'text' && (
-                    <button 
-                      onClick={() => handleCopy(res.actionUrlOrContent, idx)}
-                      className="px-3 py-2 rounded-xl bg-blue-600/30 hover:bg-blue-600/50 border border-blue-500/40 text-xs font-medium text-blue-200 transition whitespace-nowrap"
-                    >
-                      {copiedIndex === idx ? 'Copié !' : res.actionText}
-                    </button>
-                  )}
-                  {/* Bouton d'action pour le type 'tool' */}
-{res.type === 'tool' && (
-  <a
-    href={res.actionUrlOrContent}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="px-3 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-xs font-medium text-white transition text-center whitespace-nowrap shadow-lg"
-  >
-    {res.actionText}
-  </a>
-)}
-                </div>
-              ))}
+                );
+              })}
             </div>
 
-            <button 
-              onClick={() => setIsResourceModalOpen(false)}
-              className="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-xs font-medium text-white transition"
-            >
-              Fermer
-            </button>
-
           </div>
-        </div>
-      )}
 
-    </div>
+          <div className="mt-12 text-center">
+            <Link 
+              href="/" 
+              className="inline-flex items-center space-x-2 bg-white/5 hover:bg-white/10 border border-white/10 px-6 py-3 rounded-xl text-xs font-medium text-gray-300 hover:text-white transition shadow-lg"
+            >
+              <span>← Retour à l'accueil</span>
+            </Link>
+          </div>
+
+        </main>
+
+        {/* FENÊTRE MODALE DES RESSOURCES MULTIPLES */}
+        {isResourceModalOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+            <div className="bg-[#121218] border border-white/15 rounded-3xl max-w-lg w-full p-6 shadow-2xl relative max-h-[85vh] overflow-y-auto">
+              
+              <button 
+                onClick={() => setIsResourceModalOpen(false)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 w-8 h-8 rounded-full flex items-center justify-center transition"
+              >
+                ✕
+              </button>
+
+              <h3 className="text-lg font-bold mb-1 text-white">Ressources de la leçon</h3>
+              <p className="text-xs text-gray-400 mb-6">Supports associés à : <span className="text-blue-400 font-medium">{activeLesson.title}</span></p>
+
+              {/* Liste dynamique des ressources de la leçon */}
+              <div className="space-y-3 mb-6">
+                {activeLesson.resources?.map((res, idx) => (
+                  <div key={idx} className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div className="flex items-start space-x-3">
+                      <span className="text-xl mt-0.5">
+                        {res.type === 'file' ? '📄' : res.type === 'video' ? '🎥' : res.type === 'tool' ? '🛠️' : '💬'}
+                      </span>
+                      <div>
+                        <h5 className="text-xs font-bold text-white mb-0.5">{res.title}</h5>
+                        <p className="text-[11px] text-gray-400 leading-relaxed">{res.description}</p>
+                      </div>
+                    </div>
+
+                    {/* Bouton d'action selon le type */}
+                    {res.type === 'file' && (
+                      <a 
+                        href={res.actionUrlOrContent} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="px-3 py-2 rounded-xl bg-blue-600/30 hover:bg-blue-600/50 border border-blue-500/40 text-xs font-medium text-blue-200 transition text-center whitespace-nowrap"
+                      >
+                        {res.actionText}
+                      </a>
+                    )}
+
+                    {res.type === 'video' && (
+                      <a 
+                        href={res.actionUrlOrContent} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="px-3 py-2 rounded-xl bg-red-600/30 hover:bg-red-600/50 border border-red-500/40 text-xs font-medium text-red-200 transition text-center whitespace-nowrap"
+                      >
+                        {res.actionText}
+                      </a>
+                    )}
+
+                    {res.type === 'text' && (
+                      <button 
+                        onClick={() => handleCopy(res.actionUrlOrContent, idx)}
+                        className="px-3 py-2 rounded-xl bg-blue-600/30 hover:bg-blue-600/50 border border-blue-500/40 text-xs font-medium text-blue-200 transition whitespace-nowrap"
+                      >
+                        {copiedIndex === idx ? 'Copié !' : res.actionText}
+                      </button>
+                    )}
+
+                    {/* Bouton d'action pour le type 'tool' */}
+                    {res.type === 'tool' && (
+                      <a
+                        href={res.actionUrlOrContent}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-xs font-medium text-white transition text-center whitespace-nowrap shadow-lg"
+                      >
+                        {res.actionText}
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <button 
+                onClick={() => setIsResourceModalOpen(false)}
+                className="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-xs font-medium text-white transition"
+              >
+                Fermer
+              </button>
+
+            </div>
+          </div>
+        )}
+
+      </div>
+    </SmoothScroll>
   );
 }
