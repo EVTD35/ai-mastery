@@ -16,23 +16,22 @@ export default function Home() {
       setUser(currentUser);
 
       if (currentUser && currentUser.email) {
-        // On interroge par email pour correspondre parfaitement avec Supabase
         const { data: profile, error } = await supabase
-  .from('profiles')
-  .select('has_paid')
-  .eq('id', currentUser.id)
-  .single();
+          .from('profiles')
+          .select('has_paid')
+          .eq('id', currentUser.id)
+          .single();
 
-console.log("ID UTILISATEUR :", currentUser.id);
-console.log("PROFILE TROUVÉ :", profile);
-console.log("ERREUR SUPABASE :", error);
+        console.log("ID UTILISATEUR :", currentUser.id);
+        console.log("PROFILE TROUVÉ :", profile);
+        console.log("ERREUR SUPABASE :", error);
 
-if (profile) {
-  console.log("VALEUR HAS_PAID :", profile.has_paid);
-  setHasPaid(profile.has_paid ?? false);
-} else {
-  setHasPaid(false);
-}
+        if (profile) {
+          console.log("VALEUR HAS_PAID :", profile.has_paid);
+          setHasPaid(profile.has_paid ?? false);
+        } else {
+          setHasPaid(false);
+        }
       } else {
         setHasPaid(false);
       }
@@ -58,33 +57,34 @@ if (profile) {
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
   };
-console.log("USER :", user);
-console.log("HAS PAID :", hasPaid);
+
   return (
     <div className="min-h-screen bg-[#0b0b0f] text-white font-sans selection:bg-blue-600 selection:text-white scroll-smooth" style={{ scrollBehavior: 'smooth' }}>
       
       {/* NAVBAR */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-[#0b0b0f]/80 border-b border-white/10 px-6 py-4 flex items-center justify-between max-w-7xl mx-auto">
         <div className="flex items-center space-x-3">
-  <svg className="w-8 h-8 rounded-lg shadow-md" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="grad-m" x1="0%" y1="100%" x2="100%" y2="0%">
-        <stop offset="0%" stopColor="#00ced1"/>
-        <stop offset="100%" stopColor="#1e90ff"/>
-      </linearGradient>
-    </defs>
-    <circle cx="250" cy="250" r="250" fill="#07080c"/>
-    <path d="M130 380 L130 140 L200 230 L250 160 L300 230 L370 140 L370 380 L315 380 L315 230 L250 310 L185 230 L185 380 Z" fill="url(#grad-m)"/>
-    <polygon points="250,90 220,140 280,140" fill="#00ced1"/>
-  </svg>
-  <span className="font-bold text-xl tracking-tight">AI Mastery</span>
-</div>
+          <svg className="w-8 h-8 rounded-lg shadow-md" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="grad-m" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#00ced1"/>
+                <stop offset="100%" stopColor="#1e90ff"/>
+              </linearGradient>
+            </defs>
+            <circle cx="250" cy="250" r="250" fill="#07080c"/>
+            <path d="M130 380 L130 140 L200 230 L250 160 L300 230 L370 140 L370 380 L315 380 L315 230 L250 310 L185 230 L185 380 Z" fill="url(#grad-m)"/>
+            <polygon points="250,90 220,140 280,140" fill="#00ced1"/>
+          </svg>
+          <span className="font-bold text-xl tracking-tight">AI Mastery</span>
+        </div>
+        
         <nav className="hidden md:flex space-x-8 text-sm text-gray-400">
           <a href="#programme" className="hover:text-white transition duration-200">Programme</a>
           <a href="#pour-qui" className="hover:text-white transition duration-200">Pour qui ?</a>
           <a href="#temoignages" className="hover:text-white transition duration-200">Témoignages</a>
           <a href="#faq" className="hover:text-white transition duration-200">FAQ</a>
         </nav>
+        
         <div className="flex items-center space-x-4">
           {user ? (
             <button 
@@ -98,31 +98,30 @@ console.log("HAS PAID :", hasPaid);
           )}
 
           {/* Bouton dynamique selon l'état de l'utilisateur */}
-{user ? (
-  hasPaid ? (
-    <Link
-      href="/dashboard"
-      className="bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-emerald-600/20 hover:-translate-y-0.5 hover:shadow-emerald-600/40"
-    >
-      Espace membre
-    </Link>
-  ) : (
-    <a
-      href="/api/checkout"
-      className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-blue-600/20 hover:-translate-y-0.5 hover:shadow-blue-600/40"
-    >
-      Accéder à la formation
-    </a>
-  )
-) : (
-  <Link
-    href="/login"
-    className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-blue-600/20 hover:-translate-y-0.5 hover:shadow-blue-600/40"
-  >
-    Accéder à la formation
-  </Link>
-)}
-
+          {user ? (
+            hasPaid ? (
+              <Link
+                href="/dashboard"
+                className="bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-emerald-600/20 hover:-translate-y-0.5 hover:shadow-emerald-600/40"
+              >
+                Espace membre
+              </Link>
+            ) : (
+              <a
+                href="/api/checkout"
+                className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-blue-600/20 hover:-translate-y-0.5 hover:shadow-blue-600/40"
+              >
+                Accéder à la formation
+              </a>
+            )
+          ) : (
+            <Link
+              href="/login"
+              className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-blue-600/20 hover:-translate-y-0.5 hover:shadow-blue-600/40"
+            >
+              Accéder à la formation
+            </Link>
+          )}
         </div>
       </header>
 
@@ -136,7 +135,7 @@ console.log("HAS PAID :", hasPaid);
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
             Transformez l'Intelligence Artificielle en un Véritable <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">Levier de Revenus</span>
           </h1>
-          <p className="text-gray-400 text-lg mb-8">
+          <p className="text-gray-400 text-lg mb-8 leading-relaxed">
             Apprenez à maîtriser les outils d'IA générative pour créer des automatisations, lancer des micro-activités lucratives et scaler votre productivité en 2026.
           </p>
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
@@ -149,59 +148,97 @@ console.log("HAS PAID :", hasPaid);
           <div className="grid grid-cols-3 gap-6 mt-16 pt-8 border-t border-white/10 text-gray-400 text-sm">
             <div><span className="block text-white font-bold text-lg">1200+</span> APPRENANTS</div>
             <div><span className="block text-white font-bold text-lg">4.9/5</span> SATISFACTION</div>
-            <div><span className="block text-white font-bold text-lg">40h+</span> DE CONTENU</div>
+            <div><span className="block text-white font-bold text-lg">3 PILIERS</span> COMPLETS</div>
           </div>
         </div>
 
-        {/* Illustration droite (Console / Vidéo) */}
-        <div className="bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-4 rounded-2xl shadow-2xl relative">
-          <div className="bg-[#12121a] rounded-xl border border-white/10 overflow-hidden">
+        {/* Illustration droite (Dashboard / Workflows Preview) */}
+        <div className="bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-5 rounded-2xl shadow-2xl relative">
+          <div className="bg-[#12121a] rounded-xl border border-white/10 overflow-hidden font-mono">
+            
+            {/* Header console */}
             <div className="flex items-center justify-between px-4 py-3 bg-black/40 border-b border-white/10">
               <div className="flex space-x-2">
                 <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
                 <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
                 <div className="w-3 h-3 rounded-full bg-emerald-500/80"></div>
               </div>
-              <span className="text-xs text-gray-500 font-mono">console.ai-mastery</span>
+              <span className="text-xs text-gray-500">pipeline.ai-mastery.v1</span>
+              <span className="text-emerald-400 text-xs flex items-center space-x-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>connecté</span>
+              </span>
             </div>
-            <div className="relative aspect-video bg-black/60 flex items-center justify-center group cursor-pointer">
-              <div className="absolute inset-0 bg-cover bg-center opacity-40"></div>
-              <div className="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-600/50 transition transform group-hover:scale-110">
-                <span className="text-white text-xl ml-1">▶</span>
+
+            {/* Corps visuel de l'interface */}
+            <div className="p-5 space-y-4 text-xs">
+              
+              {/* Carte 1 : Tâche exécutée */}
+              <div className="bg-white/[0.03] border border-white/5 rounded-xl p-3.5 flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="w-7 h-7 rounded-lg bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold">
+                    ⚡
+                  </div>
+                  <div>
+                    <div className="text-gray-200 font-medium font-sans">Pipeline & Agents IA</div>
+                    <div className="text-gray-500 text-[11px]">Orchestration & routage multi-modèles</div>
+                  </div>
+                </div>
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">99.8% succès</span>
               </div>
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono text-gray-400">
-                <span>AUTOMATISATION ACTIVE</span>
-                <span className="text-emerald-400 flex items-center space-x-1"><span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span><span>live</span></span>
+
+              {/* Carte 2 : Flux de travail actif */}
+              <div className="bg-white/[0.03] border border-white/5 rounded-xl p-3.5 flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="w-7 h-7 rounded-lg bg-purple-600/20 border border-purple-500/30 flex items-center justify-center text-purple-400 font-bold">
+                    🛠️
+                  </div>
+                  <div>
+                    <div className="text-gray-200 font-medium font-sans">Micro-SaaS & Automatisation</div>
+                    <div className="text-gray-500 text-[11px]">Déploiement Next.js, Supabase & Stripe</div>
+                  </div>
+                </div>
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400">Automatisé</span>
               </div>
+
+              {/* Console log box */}
+              <div className="bg-black/60 rounded-lg p-3 text-[11px] text-gray-400 space-y-1 border border-white/5 font-mono">
+                <div className="text-gray-500">$ ai-mastery run --production</div>
+                <div className="text-blue-400">✔ Modèles LLM calibrés avec succès</div>
+                <div className="text-emerald-400">✔ Systèmes et SOPs opérationnels</div>
+              </div>
+
             </div>
-            <div className="px-4 py-3 bg-black/40 border-t border-white/10">
-              <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                <div className="bg-blue-600 h-full w-3/4 rounded-full"></div>
-              </div>
+
+            {/* Footer console */}
+            <div className="px-4 py-3 bg-black/40 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-500 font-sans">
+              <span>Progression globale</span>
+              <span className="text-blue-400 font-mono">100% prêt à l'emploi</span>
             </div>
+
           </div>
         </div>
       </section>
 
       {/* BANDEAU INTERMÉDIAIRE DÉFILANT */}
-<div className="py-6 border-y border-white/5 overflow-hidden bg-white/[0.01] text-gray-400 text-3xl md:text-5xl font-extrabold font-mono tracking-wider uppercase relative flex whitespace-nowrap">
-  <div className="animate-marquee flex space-x-12 shrink-0 items-center">
-    <span className="flex items-center space-x-12">
-      <span>• PROMPT ENGINEERING</span>
-      <span>• AUTOMATISATION</span>
-      <span>• FREELANCE</span>
-      <span>• SCALE</span>
-    </span>
-  </div>
-  <div className="animate-marquee flex space-x-12 shrink-0 items-center" aria-hidden="true">
-    <span className="flex items-center space-x-12">
-      <span>• PROMPT ENGINEERING</span>
-      <span>• AUTOMATISATION</span>
-      <span>• FREELANCE</span>
-      <span>• SCALE</span>
-    </span>
-  </div>
-</div>
+      <div className="py-6 border-y border-white/5 overflow-hidden bg-white/[0.01] text-gray-400 text-3xl md:text-5xl font-extrabold font-mono tracking-wider uppercase relative flex whitespace-nowrap">
+        <div className="animate-marquee flex space-x-12 shrink-0 items-center">
+          <span className="flex items-center space-x-12">
+            <span>• PROMPT ENGINEERING</span>
+            <span>• AUTOMATISATION</span>
+            <span>• FREELANCE</span>
+            <span>• SCALE</span>
+          </span>
+        </div>
+        <div className="animate-marquee flex space-x-12 shrink-0 items-center" aria-hidden="true">
+          <span className="flex items-center space-x-12">
+            <span>• PROMPT ENGINEERING</span>
+            <span>• AUTOMATISATION</span>
+            <span>• FREELANCE</span>
+            <span>• SCALE</span>
+          </span>
+        </div>
+      </div>
 
       {/* SECTION 3 PILIERS */}
       <section id="programme" className="max-w-7xl mx-auto px-6 py-24 scroll-mt-20">
@@ -340,28 +377,28 @@ console.log("HAS PAID :", hasPaid);
               <span className="text-emerald-400 block text-xs font-medium mb-8">Paiement unique • TVA incluse</span>
 
               {user ? (
-  hasPaid ? (
-    <Link href="/dashboard" className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-xl shadow-emerald-600/30 flex items-center justify-center space-x-2 hover:-translate-y-0.5">
-      <span>🚀 Accéder à mon espace membre</span>
-    </Link>
-  ) : (
-    <a href="/api/checkout" className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-xl shadow-blue-600/30 flex items-center justify-center space-x-2 hover:-translate-y-0.5">
-      <span>🔒 Procéder au paiement</span>
-    </a>
-  )
-) : (
-  <Link href="/login" className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-xl shadow-blue-600/30 flex items-center justify-center space-x-2 hover:-translate-y-0.5">
-    <span>🔒 Créer un compte & payer</span>
-  </Link>
-)}
+                hasPaid ? (
+                  <Link href="/dashboard" className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-xl shadow-emerald-600/30 flex items-center justify-center space-x-2 hover:-translate-y-0.5">
+                    <span>🚀 Accéder à mon espace membre</span>
+                  </Link>
+                ) : (
+                  <a href="/api/checkout" className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-xl shadow-blue-600/30 flex items-center justify-center space-x-2 hover:-translate-y-0.5">
+                    <span>🔒 Procéder au paiement</span>
+                  </a>
+                )
+              ) : (
+                <Link href="/login" className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-xl shadow-blue-600/30 flex items-center justify-center space-x-2 hover:-translate-y-0.5">
+                  <span>🔒 Créer un compte & payer</span>
+                </Link>
+              )}
               <span className="block text-center text-xs text-gray-500 mt-4">Paiement 100% sécurisé — propulsé par <strong>Stripe</strong></span>
             </div>
 
             <div className="space-y-4 text-sm text-gray-300 md:pl-4">
               <span className="text-xs font-mono text-gray-400 uppercase tracking-wider block mb-4">TOUT EST INCLUS</span>
-              <div className="flex items-center space-x-3"><span className="text-blue-500 font-bold">✓</span><span>Accès à vie à tous les modules vidéo (40h+)</span></div>
+              <div className="flex items-center space-x-3"><span className="text-blue-500 font-bold">✓</span><span>Accès à vie à l'ensemble des modules</span></div>
               <div className="flex items-center space-x-3"><span className="text-blue-500 font-bold">✓</span><span>Mises à jour régulières incluses</span></div>
-              <div className="flex items-center space-x-3"><span className="text-blue-500 font-bold">✓</span><span>Communauté privée d'entraide</span></div>
+              <div className="flex items-center space-x-3"><span className="text-blue-500 font-bold">✓</span><span>Fiches pratiques, guides PDF & outils interactifs</span></div>
               <div className="flex items-center space-x-3"><span className="text-blue-500 font-bold">✓</span><span>Templates de prompts exclusifs</span></div>
               <div className="flex items-center space-x-3"><span className="text-blue-500 font-bold">✓</span><span>Cas pratiques d'automatisation prêts à l'emploi</span></div>
             </div>
