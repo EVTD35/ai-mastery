@@ -601,7 +601,7 @@ export default function DashboardPage() {
           <div className="mb-8 bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/10 p-6 rounded-3xl backdrop-blur-md flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-1">
-                Bonjour {displayName} , bienvenue dans la Masterclass
+                Bonjour {displayName} , bienvenue sur la Formation AI Mastery
               </h1>
               <p className="text-xs text-gray-400">3 piliers de formation • Accès complet à vie • Mises à jour incluses</p>
             </div>
