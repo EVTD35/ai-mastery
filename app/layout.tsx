@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import SmoothScroll from "./SmoothScroll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,7 +12,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Le code SVG de ton vrai logo M avec la flèche, encodé en Data URI
+// Le code SVG de ton vrai logo M avec la flèche, encodé en Data URI (conservé à 100%)
 const svgLogo = `data:image/svg+xml,${encodeURIComponent(`
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
     <defs>
@@ -32,7 +31,7 @@ export const metadata: Metadata = {
   title: "AI Mastery",
   description: "Transformez l'Intelligence Artificielle en un véritable levier de revenus",
   icons: {
-    icon: svgLogo, // <-- Ton vrai logo M intégré directement
+    icon: svgLogo,
   },
 };
 
@@ -42,11 +41,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}>
-      <body className="min-h-full flex flex-col bg-[#0b0b0f] text-white">
-        <SmoothScroll>
-          {children}
-        </SmoothScroll>
+    <html lang="fr" className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}>
+      <body className="min-h-screen bg-[#0b0b0f] text-white">
+        {children}
       </body>
     </html>
   );
