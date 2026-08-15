@@ -126,7 +126,7 @@ export default function Home() {
       </header>
 
       {/* HERO SECTION */}
-      <section className="max-w-7xl mx-auto px-6 py-20 md:py-32 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <section className="max-w-7xl mx-auto px-6 py-20 md:py-28 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
           <div className="inline-flex items-center space-x-2 bg-white/5 border border-white/10 px-3 py-1 rounded-full text-xs text-gray-300 mb-6">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -152,71 +152,80 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Illustration droite (Dashboard / Workflows Preview) */}
-        <div className="bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-5 rounded-2xl shadow-2xl relative">
-          <div className="bg-[#12121a] rounded-xl border border-white/10 overflow-hidden font-mono">
-            
-            {/* Header console */}
-            <div className="flex items-center justify-between px-4 py-3 bg-black/40 border-b border-white/10">
-              <div className="flex space-x-2">
-                <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                <div className="w-3 h-3 rounded-full bg-emerald-500/80"></div>
-              </div>
-              <span className="text-xs text-gray-500">pipeline.ai-mastery.v1</span>
-              <span className="text-emerald-400 text-xs flex items-center space-x-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>connecté</span>
-              </span>
-            </div>
-
-            {/* Corps visuel de l'interface */}
-            <div className="p-5 space-y-4 text-xs">
-              
-              {/* Carte 1 : Tâche exécutée */}
-              <div className="bg-white/[0.03] border border-white/5 rounded-xl p-3.5 flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                  <div className="w-7 h-7 rounded-lg bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold">
-                    ⚡
-                  </div>
-                  <div>
-                    <div className="text-gray-200 font-medium font-sans">Pipeline & Agents IA</div>
-                    <div className="text-gray-500 text-[11px]">Orchestration & routage multi-modèles</div>
-                  </div>
+        {/* BENTO BOX DES RESSOURCES & LIVRABLES INCLUS */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          
+          {/* Bento Card 1 : Programme Structuré (Large) */}
+          <div className="sm:col-span-2 bg-gradient-to-br from-white/[0.06] to-white/[0.02] border border-white/10 hover:border-blue-500/40 transition duration-300 p-6 rounded-2xl relative overflow-hidden group">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center space-x-3">
+                <div className="w-9 h-9 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-base font-bold">
+                  🚀
                 </div>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">99.8% succès</span>
-              </div>
-
-              {/* Carte 2 : Flux de travail actif */}
-              <div className="bg-white/[0.03] border border-white/5 rounded-xl p-3.5 flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                  <div className="w-7 h-7 rounded-lg bg-purple-600/20 border border-purple-500/30 flex items-center justify-center text-purple-400 font-bold">
-                    🛠️
-                  </div>
-                  <div>
-                    <div className="text-gray-200 font-medium font-sans">Micro-SaaS & Automatisation</div>
-                    <div className="text-gray-500 text-[11px]">Déploiement Next.js, Supabase & Stripe</div>
-                  </div>
+                <div>
+                  <h4 className="font-bold text-sm text-white">Curriculum d'Exécution Complet</h4>
+                  <p className="text-gray-400 text-xs">Progression guidée étape par étape</p>
                 </div>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400">Automatisé</span>
               </div>
-
-              {/* Console log box */}
-              <div className="bg-black/60 rounded-lg p-3 text-[11px] text-gray-400 space-y-1 border border-white/5 font-mono">
-                <div className="text-gray-500">$ ai-mastery run --production</div>
-                <div className="text-blue-400">✔ Modèles LLM calibrés avec succès</div>
-                <div className="text-emerald-400">✔ Systèmes et SOPs opérationnels</div>
+              <span className="text-[11px] font-mono px-2.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-medium">3 Piliers Clés</span>
+            </div>
+            <div className="grid grid-cols-3 gap-2 pt-2 text-[11px] font-mono text-gray-300">
+              <div className="bg-black/40 border border-white/5 rounded-xl p-2.5 text-center">
+                <span className="text-blue-400 font-bold block mb-0.5">01</span> Prompting
               </div>
-
+              <div className="bg-black/40 border border-white/5 rounded-xl p-2.5 text-center">
+                <span className="text-purple-400 font-bold block mb-0.5">02</span> Produits & MVP
+              </div>
+              <div className="bg-black/40 border border-white/5 rounded-xl p-2.5 text-center">
+                <span className="text-emerald-400 font-bold block mb-0.5">03</span> Revenus & Scale
+              </div>
             </div>
-
-            {/* Footer console */}
-            <div className="px-4 py-3 bg-black/40 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-500 font-sans">
-              <span>Progression globale</span>
-              <span className="text-blue-400 font-mono">100% prêt à l'emploi</span>
-            </div>
-
           </div>
+
+          {/* Bento Card 2 : Fiches & Guides PDF */}
+          <div className="bg-gradient-to-br from-white/[0.05] to-white/[0.01] border border-white/10 hover:border-emerald-500/40 transition duration-300 p-5 rounded-2xl flex flex-col justify-between group">
+            <div>
+              <div className="w-8 h-8 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-sm mb-3">
+                📑
+              </div>
+              <h4 className="font-bold text-sm text-white mb-1">Fiches Pratiques & SOPs</h4>
+              <p className="text-gray-400 text-xs leading-relaxed">Frameworks téléchargeables pour appliquer chaque leçon immédiatement.</p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-gray-500 font-mono">
+              <span>PDF & Checklists</span>
+              <span className="text-emerald-400">✓ Inclus</span>
+            </div>
+          </div>
+
+          {/* Bento Card 3 : Prompts & Templates */}
+          <div className="bg-gradient-to-br from-white/[0.05] to-white/[0.01] border border-white/10 hover:border-purple-500/40 transition duration-300 p-5 rounded-2xl flex flex-col justify-between group">
+            <div>
+              <div className="w-8 h-8 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-sm mb-3">
+                ⚡
+              </div>
+              <h4 className="font-bold text-sm text-white mb-1">Templates Copier-Coller</h4>
+              <p className="text-gray-400 text-xs leading-relaxed">Bibliothèque de prompts calibrés et architectures de requêtes prêtes à l'emploi.</p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-gray-500 font-mono">
+              <span>Prêts à l'emploi</span>
+              <span className="text-purple-400">✓ 1-Clic</span>
+            </div>
+          </div>
+
+          {/* Bento Card 4 : Outils & Accès à vie (Large) */}
+          <div className="sm:col-span-2 bg-gradient-to-r from-blue-900/20 via-black/40 to-indigo-900/20 border border-white/10 hover:border-blue-500/30 transition duration-300 p-5 rounded-2xl flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="w-8 h-8 rounded-xl bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-300 text-sm font-bold">
+                🛠️
+              </div>
+              <div>
+                <div className="font-bold text-xs text-white">Espace Membre & Mises à Jour Incluses</div>
+                <div className="text-[11px] text-gray-400">Accès permanent sans abonnement récurrent</div>
+              </div>
+            </div>
+            <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-lg">À vie</span>
+          </div>
+
         </div>
       </section>
 
