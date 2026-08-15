@@ -5,14 +5,17 @@ import Lenis from 'lenis';
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    // S'assure qu'aucun ancien Lenis ne bloque la page en arrière-plan
-    window.scrollTo(0, 0);
-
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-      syncTouch: false,
+      prevent: (node) => {
+        // Empêche Lenis d'intercepter la molette sur les conteneurs scrollables internes (dashboard, modales, etc.)
+        return (
+          node.classList.contains('overflow-y-auto') ||
+          node.tagName === 'ASIDE' ||
+          node.tagName === 'MAIN'
+        );
+      },
     });
 
     function raf(time: number) {
@@ -20,16 +23,9 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       requestAnimationFrame(raf);
     }
 
-    const rafId = requestAnimationFrame(raf);
-
-    // Force le recalcul complet dès que la page est montée
-    const timer = setTimeout(() => {
-      lenis.resize();
-    }, 50);
+    requestAnimationFrame(raf);
 
     return () => {
-      clearTimeout(timer);
-      cancelAnimationFrame(rafId);
       lenis.destroy();
     };
   }, []);
