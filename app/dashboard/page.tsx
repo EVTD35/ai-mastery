@@ -390,7 +390,64 @@ Signer un client ne relève pas de la chance, mais d'une méthode rigoureuse en 
           }
         ]
       },
-      { title: "Scaler : systèmes, délégation et revenus récurrents", content: "Passez de l'artisanat à une structure industrialisée pour pérenniser et accroître votre chiffre d'affaires." }
+      {
+        title: "Scaler : systèmes, délégation et revenus récurrents",
+        content: `Dans cette ultime leçon de clôture de la formation AI Mastery, nous quittons définitivement la posture de l'exécutant pour adopter celle de l'architecte de systèmes. Votre objectif n'est plus de travailler davantage d'heures, mais de bâtir une infrastructure autonome capable d'amplifier vos résultats tout en vous libérant du temps opérationnel.
+
+1. L'équation du Scaling : Systèmes > Effort
+Le piège classique de l'indépendant ou du fondateur est de compenser chaque pic d'activité par du temps de travail supplémentaire. Scaler signifie croître sans augmenter proportionnellement ses coûts ou son temps passé :
+• Découpler les revenus du temps : Construire des actifs (produits numériques, micro-SaaS, workflows automatisés) qui tournent 24h/24.
+• Réduire la dépendance humaine : Chaque tâche répétitive doit être documentée, automatisée via l'IA ou déléguée avec un cadre strict.
+
+2. Les SOPs (Standard Operating Procedures) augmentées par l'IA
+Une SOP n'est pas un manuel lourd et poussiéreux, mais une recette chirurgicale permettant d'obtenir un résultat parfait à tous les coups :
+• Déclencheur clair : Quand et pourquoi la procédure doit-elle démarrer ?
+• Étapes séquentielles : Les actions précises à réaliser sans ambiguïté.
+• Validation qualité : La checklist qui prouve que la tâche est achevée avec succès.
+Avec l'IA, vous ne partez plus de zéro : enregistrez votre écran ou dictez vos actions, puis laissez un prompt transformer vos notes en procédure prête à être confiée à un assistant ou un bot.
+
+3. La Délégation Hybride (IA + Collaborateurs)
+La véritable force d'une structure moderne réside dans la synergie entre automatisations logicielles et interventions humaines ciblées :
+• Niveau 1 (100% IA) : Triage des e-mails, extraction de données, brouillons de réponses, veille sectorielle.
+• Niveau 2 (Humain assisté par IA) : Support client complexe, gestion de communauté, relations partenaires guidées par vos SOPs.
+• Niveau 3 (Votre rôle stratégique) : Vision, arbitrage des priorités, création de nouvelles offres et partenariats clés.
+
+4. Bâtir et Sécuriser des Revenus Récurrents (MRR)
+La prévisibilité financière est le socle de toute croissance pérenne :
+• Mesurer en continu le Churn : Comprendre pourquoi un client part et automatiser des alertes préventives de désengagement.
+• Maximiser la Lifetime Value (LTV) : Proposer des montées en gamme logiques (upsells) et des services continus à forte valeur perçue.
+• Automatiser le cycle de vie client : De l'onboarding au renouvellement sans friction manuelle.`,
+        resources: [
+          {
+            type: 'video',
+            title: "5 Automatisations IA à Implémenter dans TOUTES Les Entreprises",
+            description: "Guide concret pour cartographier et automatiser les processus clés d'une entreprise (marketing, support, RH, ventes et facturation).",
+            actionText: "Voir la vidéo",
+            actionUrlOrContent: "https://www.youtube.com/watch?v=unA3slO6aSY"
+          },
+          {
+            type: 'text',
+            title: "Générateur de SOPs et d'Arborescence Opérationnelle",
+            description: "Le prompt expert pour convertir instantanément n'importe quelle routine en procédure standardisée prête pour l'IA ou un délégataire.",
+            actionText: "Copier le prompt",
+            actionUrlOrContent: "Agis en tant qu'architecte des opérations et expert en productivité business. Je souhaite documenter et standardiser la tâche/routine suivante : [Décris ta tâche ou colle tes notes brutes]. Rédige une SOP (Standard Operating Procedure) ultra-claire et directement exploitable comprenant : 1) Le contexte et l'objectif de la tâche, 2) Le déclencheur (trigger), 3) Les prérequis et outils nécessaires, 4) La checklist étape par étape à suivre sans ambiguïté, et 5) Les critères de validation de fin de tâche."
+          },
+          {
+            type: 'tool',
+            title: "Simulateur de Croissance MRR & Churn",
+            description: "Un simulateur interactif pour projeter l'évolution de vos abonnements, mesurer l'impact de la rétention et calculer votre LTV.",
+            actionText: "Ouvrir le simulateur",
+            actionUrlOrContent: "https://docs.google.com/spreadsheets"
+          },
+          {
+            type: 'file',
+            title: "Le Guide du Scaling & des Systèmes (PDF)",
+            description: "Le livre blanc complet détaillant l'architecture opérationnelle, la création de SOPs et la feuille de route sur 30 jours.",
+            actionText: "Télécharger",
+            actionUrlOrContent: "/fichiers/scaler-systemes-revenus.pdf"
+          }
+        ]
+      }
     ]
   }
 ];
