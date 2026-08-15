@@ -9,12 +9,8 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       prevent: (node) => {
-        // Empêche Lenis d'intercepter la molette sur les conteneurs scrollables internes (dashboard, modales, etc.)
-        return (
-          node.classList.contains('overflow-y-auto') ||
-          node.tagName === 'ASIDE' ||
-          node.tagName === 'MAIN'
-        );
+        // Empêche Lenis d'intercepter la molette UNIQUEMENT à l'intérieur de la modale de ressources
+        return node.classList.contains('overflow-y-auto');
       },
     });
 

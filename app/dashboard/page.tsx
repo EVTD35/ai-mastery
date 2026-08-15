@@ -569,6 +569,8 @@ export default function DashboardPage() {
   const hasPrevious = currentModuleIndex > 0 || currentLessonIndex > 0;
   const hasNext = currentModuleIndex < modulesData.length - 1 || currentLessonIndex < activeModule.lessons.length - 1;
 
+  const displayName = user?.user_metadata?.full_name || user?.user_metadata?.name || user?.user_metadata?.username || user?.email?.split('@')[0];
+
   return (
     <SmoothScroll>
       <div className="min-h-screen bg-[#0b0b0f] text-white font-sans selection:bg-blue-600 selection:text-white pb-16 relative">
@@ -580,7 +582,9 @@ export default function DashboardPage() {
             <span className="font-bold text-xl tracking-tight">AI Mastery — Espace Membre</span>
           </div>
           <div className="flex items-center space-x-4">
-            <span className="text-xs text-gray-400 hidden sm:inline">{user?.email}</span>
+            <span className="text-xs text-gray-300 font-medium hidden sm:inline">
+              {displayName}
+            </span>
             <button 
               onClick={handleLogout}
               className="text-xs text-gray-300 hover:text-white bg-white/5 border border-white/10 px-3 py-1.5 rounded-xl transition"
@@ -597,7 +601,7 @@ export default function DashboardPage() {
           <div className="mb-8 bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/10 p-6 rounded-3xl backdrop-blur-md flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-1">
-                Bonjour {user?.user_metadata?.full_name || user?.email?.split('@')[0]} , bienvenue dans la Masterclass
+                Bonjour {displayName} , bienvenue dans la Masterclass
               </h1>
               <p className="text-xs text-gray-400">3 piliers de formation • Accès complet à vie • Mises à jour incluses</p>
             </div>
